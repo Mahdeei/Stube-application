@@ -1,3 +1,6 @@
+build/
+README.md
+
 # Miscellaneous
 *.class
 *.log
