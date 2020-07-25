@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'KaPage.dart';
 import 'mahde/home.dart';
 
 
@@ -69,7 +70,13 @@ class _KarAmouziListListState extends State<KarAmouziListList> {
         itemCount: 20,
         itemBuilder: (BuildContext context,int index)
         => new GestureDetector(
-          onTap: (){print('pressed project');},
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => KaPage()),
+            );
+
+          },
           child: new Container(
             margin: const EdgeInsets.only(right: 6.0,bottom: 5.0,top: 10.0,left: 9.0),
             height: phonesize.height *0.15,
