@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+
       appBar: new AppBar(actions: <Widget>[
         new IconButton(
             icon: Icon(
@@ -116,7 +117,7 @@ List<ListTile> listdrawer = [
   ListTile(
     leading: new Icon(Icons.create_new_folder),
     onTap: () {},
-    title: Text('پرژه ها'),
+    title: Text('آگهیا'),
     trailing: Icon(Icons.arrow_forward),
   ),
   ListTile(

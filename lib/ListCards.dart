@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stubbbb/HomePage/MyProfilePage.dart';
 
+import 'AgahiPages.dart';
+import 'KarAmouziPage.dart';
 import 'ProfilesPage.dart';
 
 
@@ -18,7 +20,7 @@ class _ListCardsState extends State<ListCards> {
   List<String> listhome = [
     'دانشجوی حرفه ای',
     'کارآموزی',
-    'پروژه ها',
+    'آگهی',
     'دانشجوها '
   ];
 
@@ -73,6 +75,11 @@ class _ListCardsState extends State<ListCards> {
                 ),
               ),
               new GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AgahiPages()),
+                  );},
                 child: new Card(
 
                   shadowColor: Colors.black,
@@ -103,7 +110,10 @@ class _ListCardsState extends State<ListCards> {
             children: <Widget>[
               new GestureDetector(
                 onTap: (){
-                  print("pressed");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => KarAmouziPage()),
+                  );
                 },
                 child: new Card(
 

@@ -7,10 +7,39 @@ class Listnemone extends StatefulWidget {
 }
 
 class _ListnemoneState extends State<Listnemone> {
+
   @override
   Widget build(BuildContext context) {
+
     return Material(
-     child: new Expanded(child: new Text("asfsadfsdfsdf")), 
+     child: new Column(
+       children: <Widget>[
+         new Row(
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           children: <Widget>[
+             ImageContainer(),
+             ImageContainer(),
+             ImageContainer()
+           ],
+          )
+       ],
+         )
+
+
     );
+  }
+}
+
+
+
+class ImageContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var phonesize = MediaQuery.of(context).size ;
+    return new Padding(padding: const EdgeInsets.only(bottom: 2.0),child: new Container(
+        height: phonesize.width *0.325 ,
+        width: phonesize.width * 0.325,
+        decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover,image: AssetImage('assets/image/download.jfif')),
+        )));
   }
 }

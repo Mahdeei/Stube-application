@@ -26,7 +26,7 @@ void changePage(int i){
   Widget build(BuildContext context) {
     return new MaterialApp(
 
-      theme: ThemeData(primaryIconTheme: IconThemeData(color: Colors.black)),
+      theme: ThemeData(primaryIconTheme: IconThemeData(color: Color(0xff2C003E))),
         debugShowCheckedModeBanner: false,
         home: new Directionality(
             textDirection: TextDirection.rtl,
@@ -58,9 +58,7 @@ void changePage(int i){
                     padding: const EdgeInsets.only(left: 5.0),
                     child: new IconButton(
                       icon: Icon(Icons.filter_list),
-                      onPressed: (){Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => DialogFilter(),));}))
+                      onPressed: (){}))
                 ],
                 backgroundColor: Colors.white,elevation: 5.0,
                 bottomOpacity: 25.0,
@@ -133,25 +131,25 @@ void changePage(int i){
 
 
 
-class DialogFilter extends StatefulWidget {
-  @override
-  _DialogFilterState createState() => _DialogFilterState();
-}
-
-class _DialogFilterState extends State<DialogFilter> {
-  @override
-  Widget build(BuildContext context) {
-    return new Dialog(
-
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0)),
-      backgroundColor: Colors.white,
-      child: new Column(children: <Widget>[
-        new Row(),
-      ],));
-    ;
-  }
-}
+//class DialogFilter extends StatefulWidget {
+//  @override
+//  _DialogFilterState createState() => _DialogFilterState();
+//}
+//
+//class _DialogFilterState extends State<DialogFilter> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return new Dialog(
+//
+//      shape: RoundedRectangleBorder(
+//          borderRadius: BorderRadius.circular(10.0)),
+//      backgroundColor: Colors.white,
+//      child: new Column(children: <Widget>[
+//        new Row(),
+//      ],));
+//    ;
+//  }
+//}
 
 
 

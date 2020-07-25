@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stubbbb/ProPage.dart';
 
 class ListProfiles extends StatefulWidget {
   final controller = new PageController(
@@ -16,7 +17,12 @@ class _ListProfilesState extends State<ListProfiles> {
   Widget build(BuildContext context) {
     var phonesize = MediaQuery.of(context).size;
   return new GestureDetector(
-    onTap: (){print('press');},
+    onTap: (){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProPage()),
+      );
+      },
     child: new Row(
     children: <Widget>[
       new Padding(padding: const EdgeInsets.only(top: 20.0,right: 15.0),
@@ -51,11 +57,11 @@ class _ListProfilesState extends State<ListProfiles> {
 
                       children: <Widget>[
                         new Container(
-                          decoration: BoxDecoration(color: Colors.grey,shape: BoxShape.rectangle,borderRadius: BorderRadius.circular(15.0)),
+                          decoration: BoxDecoration(color: Color(0xffD2FAFB),shape: BoxShape.rectangle,borderRadius: BorderRadius.circular(15.0)),
                           child:new Padding(padding: const EdgeInsets.symmetric(horizontal: 3.0,vertical: 1.0),child: new Text('برنامه نویسی موبایل',style: new TextStyle(color: Color(0xff2c003e),fontSize: 10.0,),),
                         )),
                         new Container(
-                          decoration: BoxDecoration(color: Colors.grey,shape: BoxShape.rectangle,borderRadius: BorderRadius.circular(15.0)),
+                          decoration: BoxDecoration(color: Color(0xffD2FAFB),shape: BoxShape.rectangle,borderRadius: BorderRadius.circular(15.0)),
                           child: new Padding(padding: const EdgeInsets.symmetric(horizontal: 3.0,vertical: 1.0),child: new Text('برنامه نویسی موبایل',style: new TextStyle(color: Color(0xff2c003e),fontSize: 10.0,),),
                         )
 
