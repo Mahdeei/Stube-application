@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:stubbbb/HomePage/MyHomePage.dart';
 import 'package:stubbbb/mahde/home.dart';
 
+import 'AgahPage.dart';
+
 class AgahiPages extends StatefulWidget {
   @override
   _AgahiPagesState createState() => _AgahiPagesState();
@@ -85,7 +87,12 @@ class _ProjectListState extends State<ProjectList> {
       itemCount: 20,
       itemBuilder: (BuildContext context,int index)
         => new GestureDetector(
-          onTap: (){print('pressed project');},
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AgahPage()),
+            );
+          },
           child: new Container(
             margin: const EdgeInsets.only(right: 6.0,bottom: 5.0,top: 5.0,left: 9.0),
             height: phonesize.height *0.15,
