@@ -68,29 +68,52 @@ class _KaPageState extends State<KaPage> {
                 ),
                 Line(),
                 new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
-                  child: new Text('امتیاز',
-                    style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
-                new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-                  child: new Text('کار با فوتوشاپ، ساخت انیمیشن با افتر افکت، کار با XD، طراحی لوگو', style: TextStyle(fontSize: 17.0),),),
-                Line(),
-                new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
                   child: new Text('آدرس',
                     style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
                 new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-                  child: new Text('بلوار پیروزی، میدان سلمان', style: TextStyle(fontSize: 17.0),),),
+                  child: new Text('مشهد، وکیل آباد 56، خیابان طاهر، مجتمع صدف', style: TextStyle(fontSize: 17.0),),),
                 Line(),
                 new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
                     child: new Wrap(
                       runSpacing: 8.0,
                       spacing: 7.0,
                       children: <Widget>[
-                        ObjectTag(tags: 'برنامه نویسی',),
+                        ObjectTag(tags: 'ios  برنامه نویسی',),
                         ObjectTag(tags: 'فرانت اند',),
                         ObjectTag(tags: 'بک اند',),
-                        ObjectTag(tags: 'گرافیک',),
                         ObjectTag(tags: 'ui',),
                       ],
-                    ))
+                    ),),
+                Line(),
+                new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
+                  child: new Text('ارتباط',
+                    style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
+                new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+                  child: new Column(
+                    children: <Widget>[
+                      new Row(
+                        children: <Widget>[
+                          new Icon(Icons.call),
+                          new Text(' 0939734053', style: TextStyle(fontSize: 17.0),)
+                        ],
+                      ),
+                      new SizedBox(height: 5,),
+                      new Row(
+                        children: <Widget>[
+                          new Icon(Icons.mail),
+                          new Text(' iranserver@gmail.com', style: TextStyle(fontSize: 17.0),)
+                        ],
+                      ),
+                      new SizedBox(height: 5,),
+                      new Row(
+                        children: <Widget>[
+                          new Icon(Icons.check_circle),
+                          new Text(' iran_server', style: TextStyle(fontSize: 17.0),)
+                        ],
+                      ),
+                    ],
+                  )
+                ),
 
 
 
