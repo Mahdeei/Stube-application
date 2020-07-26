@@ -16,9 +16,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentindex = 1;
   List<Widget> listwidget = [
-    MyMessagePage(),
-    MyHomePage(),
     MyRequestPage(),
+    MyHomePage(),
+    MyMessagePage(),
   ];
 
   changePage(int indexpage) {
@@ -30,22 +30,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-          actions: <Widget>[
-            new IconButton(
-                icon: Icon(Icons.notifications,color: Colors.white,),
-                onPressed: () {})
-          ],
-          elevation: 0.0,
-          backgroundColor: R.color.banafshmain),
-      drawer: DrawerLists(),
-      backgroundColor: R.color.backGround1,
       bottomNavigationBar: FFNavigationBar(
         theme: FFNavigationBarTheme(
 //          itemWidth: 50.0,
           barBackgroundColor: Colors.white,
 //          selectedItemBorderColor: R.color.banafshKamRang,
-          selectedItemBackgroundColor: R.color.bluelight,
+          selectedItemBackgroundColor: R.color.red,
           selectedItemIconColor: R.color.banafshtire,
           selectedItemLabelColor: R.color.banafshtire,
 

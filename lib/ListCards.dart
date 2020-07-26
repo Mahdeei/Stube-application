@@ -34,15 +34,15 @@ class _ListCardsState extends State<ListCards> {
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new MenuItemWidget(model: new ModelMenu(R.titr.daneshjo,R.images.daneshjoHa),phonesize: phonesize,Listener: goToStu,),
-              new MenuItemWidget(model: new ModelMenu(R.titr.aagahi,R.images.projects),phonesize: phonesize,Listener: goToProjects,),
+              new MenuItemWidget(model: new ModelMenu(R.titr.daneshjo,R.images.daneshjoHa,R.color.red),phonesize: phonesize,Listener: goToStu,),
+              new MenuItemWidget(model: new ModelMenu(R.titr.aagahi,R.images.projects,R.color.banafshmain),phonesize: phonesize,Listener: goToProjects,),
             ],
           ),
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new MenuItemWidget(model: new ModelMenu(R.titr.karamouzu,R.images.karAmouzi),phonesize: phonesize,Listener: goToKarAomuozi,),
-              new MenuItemWidget(model: new ModelMenu(R.titr.daneshjoyehefei,R.images.daneshjoyeHerfei),phonesize: phonesize,Listener: goToStu,),
+              new MenuItemWidget(model: new ModelMenu(R.titr.karamouzu,R.images.karAmouzi,R.color.blueTire),phonesize: phonesize,Listener: goToKarAomuozi,),
+              new MenuItemWidget(model: new ModelMenu(R.titr.daneshjoyehefei,R.images.daneshjoyeHerfei,R.color.red),phonesize: phonesize,Listener: goToStu,),
             ],
           )
         ],
@@ -84,8 +84,8 @@ class _ListCardsState extends State<ListCards> {
 class ModelMenu {
   String titr;
   String image;
-
-  ModelMenu(this.titr, this.image);
+  Color color;
+  ModelMenu(this.titr, this.image,this.color);
 }
 
 class MenuItemWidget extends StatelessWidget {
@@ -112,16 +112,15 @@ class MenuItemWidget extends StatelessWidget {
                 height: phonesize.height * 0.27,
                 width: phonesize.width * 0.38,
                 child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
 
                   children: <Widget>[
-                    new Padding(
-                      padding: const EdgeInsets.only(right: 8.0,top: 10.0),
-                      child: new Text(model.titr,style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),
+                    new Align(alignment: Alignment.topCenter,child: new Image(image: AssetImage(model.image),height: 120.0,),),
+                    new SizedBox(height: 20.0,),
+                    new Align(alignment: Alignment.bottomCenter,child: new Text(model.titr,style: TextStyle(color: model.color,fontSize: 20.0,fontWeight: FontWeight.bold),),
                     ),
-                    new SizedBox(height: 40.0,),
-                    new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-                        child: new Image(image: AssetImage(model.image),height: 85.0,))
+
+
                   ],
                 ),
               ),

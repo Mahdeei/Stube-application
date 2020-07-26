@@ -1,15 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stubbbb/mahde/home.dart';
 
 
 import '../ListCards.dart';
+import '../R.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    return new Scaffold(
+      appBar: new AppBar(
+          actions: <Widget>[
+            new IconButton(
+                icon: Icon(Icons.notifications,color: Colors.white,),
+                onPressed: () {})
+          ],
+          elevation: 0.0,
+          backgroundColor: R.color.banafshmain),
+      drawer: DrawerLists(),
+      backgroundColor: R.color.backGround1,
+      body: new Column(
 
-      children: <Widget>[
+        children: <Widget>[
 
           NaviBar(),
           ListCards(),
@@ -18,7 +31,8 @@ class MyHomePage extends StatelessWidget {
 //          TestingScreen(),
 
 
-      ],
+        ],
+      ),
     );
   }
 }

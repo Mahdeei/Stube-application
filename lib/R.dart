@@ -12,6 +12,7 @@ class _Color{
   Color red = Color(0xffFE346E);
   Color primary = Color(0xffF2F3F8);
   Color bluelight = Color(0xffD2FAFB);
+  Color blueTire = Color(0xff2C7C7D);
   Color banafshtire = Color(0xff2E0027);
   Color banafshKamRang = Color(0xff44143D);
   Color backGround1 = Color(0xffF2F3F8);

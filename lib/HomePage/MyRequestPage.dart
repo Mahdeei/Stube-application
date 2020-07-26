@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stubbbb/AgahPage.dart';
+import 'package:stubbbb/mahde/home.dart';
+
+import '../R.dart';
 
 
 
@@ -13,11 +16,60 @@ class _MyRequestPageState extends State<MyRequestPage>  {
   @override
   Widget build(BuildContext context) {
     var phonesize = MediaQuery.of(context).size;
-    return Material(
-      child: new Scaffold(
+    return MaterialApp(
+      theme: ThemeData(primaryIconTheme: IconThemeData(color: R.color.banafshmain)),
+      debugShowCheckedModeBanner: false,
+      home: new Directionality(textDirection: TextDirection.rtl,
+        child: new Scaffold(
+          drawer: Drawer(
+            child: new ListView(
+              //          padding: EdgeInsets.zero,
+              children: <Widget>[
+                new Container(
+                  color: Colors.white,
+                  child: new DrawerHeader(
+                      child: new CircleAvatar(
+                        child: Image.asset('assets/image/download (4).png'),
+                      )),
+                ),
+                new Column(
+                  children: <Widget>[
+                    new Column(
+                      children: new List.generate(7, (int index) {
+                        return listdrawer[index];
+                      }),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+          appBar: new AppBar(
+            //            title: this.cusSearchBar,
+            actions: <Widget>[
+              new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  new Padding(
+                      padding: const EdgeInsets.only(left: 5.0),
+                      child: new IconButton(
+                          icon: Icon(Icons.filter_list), onPressed: () {})),
+
+                ],)
+
+            ],
+            backgroundColor: Colors.white,
+            elevation: 5.0,
+            bottomOpacity: 25.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(30),
+              ),
+            ),
+          ),
         body: new ListView.builder(
-          itemCount: 20,
-          itemBuilder: (BuildContext context,int index)
+            itemCount: 20,
+            itemBuilder: (BuildContext context,int index)
             => new Column(
               children: <Widget>[
 //                new SizedBox(height: 5.0,),
@@ -49,8 +101,8 @@ class _MyRequestPageState extends State<MyRequestPage>  {
                                       width: 250.0,
                                       child: new Text('سلام،حدود 5سال سابقه برنامه نویسی اپلیکیشن دارمو می تونم در این زمینه با شما همکاری کنم و به خو',maxLines: 2,overflow: TextOverflow.ellipsis,),
                                     ),
-                                  ButtonMore(),
-                                ],
+                                    ButtonMore(),
+                                  ],
                                 )
                               ],
                             ),
@@ -80,7 +132,7 @@ class _MyRequestPageState extends State<MyRequestPage>  {
               ],
             )
         ),
-      ),
+      ),)
     );
   }
 }
