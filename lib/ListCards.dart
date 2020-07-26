@@ -43,61 +43,6 @@ class _ListCardsState extends State<ListCards> {
             children: <Widget>[
               new MenuItemWidget(model: new ModelMenu(R.titr.karamouzu,R.images.karAmouzi),phonesize: phonesize,Listener: goToKarAomuozi,),
               new MenuItemWidget(model: new ModelMenu(R.titr.daneshjoyehefei,R.images.daneshjoyeHerfei),phonesize: phonesize,Listener: goToStu,),
-
-//              new GestureDetector(
-//                onTap: (){
-//                  Navigator.pushReplacement(
-//                    context,
-//                    MaterialPageRoute(builder: (context) => KarAmouziPage()),
-//                  );
-//                },
-//                child: new Card(
-//
-//                  shadowColor: Colors.black,
-//                  elevation: 10.0,
-//                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-//                  margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
-//                  color: Colors.white,
-//                  child: new Container(
-//                    height: phonesize.height * 0.27,
-//                    width: phonesize.width * 0.38,
-//                    child: new Column(
-//                      crossAxisAlignment: CrossAxisAlignment.start,
-//
-//                      children: <Widget>[
-//                        new Padding(padding: const EdgeInsets.only(right: 8.0,top: 10.0),child: new Text(R.titr.aagahi,style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),),
-//                        new SizedBox(height: 40.0,),
-//                        new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-//                            child: new Image(image: AssetImage(R.images.projects),height: 85.0,))
-//                      ],
-//                    ),
-//                  ),
-//                ),
-//              ),
-//              new GestureDetector(
-//                child: new Card(
-//
-//                  shadowColor: Colors.black,
-//                  elevation: 10.0,
-//                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-//                  margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
-//                  color: Colors.white,
-//                  child: new Container(
-//                    height: phonesize.height * 0.27,
-//                    width: phonesize.width * 0.38,
-//                    child: new Column(
-//                      crossAxisAlignment: CrossAxisAlignment.start,
-//
-//                      children: <Widget>[
-//                        new Padding(padding: const EdgeInsets.only(right: 15.0,top: 10.0),child: new Text(R.titr.daneshjoyehefei,style: TextStyle(color: Color(0xfffe346e),fontSize: 18.0,fontWeight: FontWeight.bold),),),
-//                        new SizedBox(height: 40.0,),
-//                        new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-//                            child: new Image(image: AssetImage(R.images.daneshjoyeHerfei),height: 85.0,))
-//                      ],
-//                    ),
-//                  ),
-//                ),
-//              )
             ],
           )
         ],
