@@ -14,13 +14,6 @@ class ListCards extends StatefulWidget {
 }
 
 class _ListCardsState extends State<ListCards> {
-  var phonesize;
-   List<String> images = [
-    'assets/image/In progress-amico (1).png',
-     'assets/image/download (4).png',
-     'assets/image/Startup life-rafiki (2).png',
-     'assets/image/undraw_folder_files_nweq.png',]
-  ;
 
    @override
   void initState() {
@@ -33,7 +26,7 @@ class _ListCardsState extends State<ListCards> {
   Widget build(BuildContext context) {
 
 
-    phonesize = MediaQuery.of(context).size;
+    var phonesize = MediaQuery.of(context).size;
     return Center(
       child: new Column(
 
@@ -42,20 +35,29 @@ class _ListCardsState extends State<ListCards> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new MenuItemWidget(model: new ModelMenu(R.titr.daneshjo,R.images.daneshjoHa),phonesize: phonesize,Listener: goToStu,),
-              new MenuItemWidget(model: new ModelMenu(R.titr.aagahi,R.images.projects),phonesize: phonesize,Listener: goToStu,),
+              new MenuItemWidget(model: new ModelMenu(R.titr.aagahi,R.images.projects),phonesize: phonesize,Listener: goToProjects,),
+            ],
+          ),
+          new Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new MenuItemWidget(model: new ModelMenu(R.titr.karamouzu,R.images.karAmouzi),phonesize: phonesize,Listener: goToKarAomuozi,),
+              new MenuItemWidget(model: new ModelMenu(R.titr.daneshjoyehefei,R.images.daneshjoyeHerfei),phonesize: phonesize,Listener: goToStu,),
+
 //              new GestureDetector(
 //                onTap: (){
-//                  Navigator.push(
+//                  Navigator.pushReplacement(
 //                    context,
-//                    MaterialPageRoute(builder: (context) => AgahiPages()),
-//                  );},
+//                    MaterialPageRoute(builder: (context) => KarAmouziPage()),
+//                  );
+//                },
 //                child: new Card(
 //
 //                  shadowColor: Colors.black,
 //                  elevation: 10.0,
 //                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
 //                  margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
-//                  color:R.color.primary,
+//                  color: Colors.white,
 //                  child: new Container(
 //                    height: phonesize.height * 0.27,
 //                    width: phonesize.width * 0.38,
@@ -63,74 +65,39 @@ class _ListCardsState extends State<ListCards> {
 //                      crossAxisAlignment: CrossAxisAlignment.start,
 //
 //                      children: <Widget>[
-//                        new Padding(padding: const EdgeInsets.only(right: 8.0,top: 10.0),child: new Text(listhome[2],style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),),
+//                        new Padding(padding: const EdgeInsets.only(right: 8.0,top: 10.0),child: new Text(R.titr.aagahi,style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),),
 //                        new SizedBox(height: 40.0,),
 //                        new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-//                            child: new Image(image: AssetImage(images[3]),height: 85.0,))
+//                            child: new Image(image: AssetImage(R.images.projects),height: 85.0,))
+//                      ],
+//                    ),
+//                  ),
+//                ),
+//              ),
+//              new GestureDetector(
+//                child: new Card(
+//
+//                  shadowColor: Colors.black,
+//                  elevation: 10.0,
+//                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+//                  margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
+//                  color: Colors.white,
+//                  child: new Container(
+//                    height: phonesize.height * 0.27,
+//                    width: phonesize.width * 0.38,
+//                    child: new Column(
+//                      crossAxisAlignment: CrossAxisAlignment.start,
+//
+//                      children: <Widget>[
+//                        new Padding(padding: const EdgeInsets.only(right: 15.0,top: 10.0),child: new Text(R.titr.daneshjoyehefei,style: TextStyle(color: Color(0xfffe346e),fontSize: 18.0,fontWeight: FontWeight.bold),),),
+//                        new SizedBox(height: 40.0,),
+//                        new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
+//                            child: new Image(image: AssetImage(R.images.daneshjoyeHerfei),height: 85.0,))
 //                      ],
 //                    ),
 //                  ),
 //                ),
 //              )
-            ],
-          ),
-          new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new GestureDetector(
-                onTap: (){
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => KarAmouziPage()),
-                  );
-                },
-                child: new Card(
-
-                  shadowColor: Colors.black,
-                  elevation: 10.0,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-                  margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
-                  color: Colors.white,
-                  child: new Container(
-                    height: phonesize.height * 0.27,
-                    width: phonesize.width * 0.38,
-                    child: new Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-
-                      children: <Widget>[
-                        new Padding(padding: const EdgeInsets.only(right: 8.0,top: 10.0),child: new Text(R.titr.aagahi,style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),),
-                        new SizedBox(height: 40.0,),
-                        new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-                            child: new Image(image: AssetImage(images[0]),height: 85.0,))
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              new GestureDetector(
-                child: new Card(
-
-                  shadowColor: Colors.black,
-                  elevation: 10.0,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-                  margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
-                  color: Colors.white,
-                  child: new Container(
-                    height: phonesize.height * 0.27,
-                    width: phonesize.width * 0.38,
-                    child: new Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-
-                      children: <Widget>[
-                        new Padding(padding: const EdgeInsets.only(right: 15.0,top: 10.0),child: new Text(R.titr.daneshjoyehefei,style: TextStyle(color: Color(0xfffe346e),fontSize: 18.0,fontWeight: FontWeight.bold),),),
-                        new SizedBox(height: 40.0,),
-                        new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-                            child: new Image(image: AssetImage(images[2]),height: 85.0,))
-                      ],
-                    ),
-                  ),
-                ),
-              )
             ],
           )
         ],
@@ -166,41 +133,6 @@ class _ListCardsState extends State<ListCards> {
 //  );
 //}
 
-  Widget getStuWidget() {
-    return new GestureDetector(
-      onTap : () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ProfilesPage()),
-        );
-      },
-      child: new Card(
-
-        shadowColor: Colors.black,
-        elevation: 10.0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-        margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
-        color: Colors.white,
-        child: new Container(
-          height: phonesize.height * 0.27,
-          width: phonesize.width * 0.38,
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-
-            children: <Widget>[
-              new Padding(
-                padding: const EdgeInsets.only(right: 8.0,top: 10.0),
-                child: new Text(R.titr.karamouzu,style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),
-              ),
-              new SizedBox(height: 40.0,),
-              new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-                  child: new Image(image: AssetImage(images[1]),height: 85.0,))
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 
@@ -226,15 +158,7 @@ class MenuItemWidget extends StatelessWidget {
           onTap: () {
             Listener();
           },
-          child: new GestureDetector(
-            onTap : () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfilesPage()),
-              );
-            },
             child: new Card(
-
               shadowColor: Colors.black,
               elevation: 10.0,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
@@ -258,8 +182,84 @@ class MenuItemWidget extends StatelessWidget {
                 ),
               ),
             ),
-          )
+
         ));
   }
 }
 
+
+
+
+//
+//new GestureDetector(
+//onTap: (){
+//Navigator.push(
+//context,
+//MaterialPageRoute(builder: (context) => AgahiPages()),
+//);},
+//child: new Card(
+//
+//shadowColor: Colors.black,
+//elevation: 10.0,
+//shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+//margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
+//color:R.color.primary,
+//child: new Container(
+//height: phonesize.height * 0.27,
+//width: phonesize.width * 0.38,
+//child: new Column(
+//crossAxisAlignment: CrossAxisAlignment.start,
+//
+//children: <Widget>[
+//new Padding(padding: const EdgeInsets.only(right: 8.0,top: 10.0),child: new Text(listhome[2],style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),),
+//new SizedBox(height: 40.0,),
+//new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
+//child: new Image(image: AssetImage(images[3]),height: 85.0,))
+//],
+//),
+//),
+//),
+//)
+
+
+
+
+
+
+
+
+//Widget getStuWidget() {
+//  return new GestureDetector(
+//    onTap : () {
+//      Navigator.push(
+//        context,
+//        MaterialPageRoute(builder: (context) => ProfilesPage()),
+//      );
+//    },
+//    child: new Card(
+//
+//      shadowColor: Colors.black,
+//      elevation: 10.0,
+//      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+//      margin: const EdgeInsets.only(left: 15.0,right: 5.0,top: 25.0),
+//      color: Colors.white,
+//      child: new Container(
+//        height: MediaQuery.of(context).size.height * 0.27,
+//        width: MediaQuery.of(context).size.width * 0.38,
+//        child: new Column(
+//          crossAxisAlignment: CrossAxisAlignment.start,
+//
+//          children: <Widget>[
+//            new Padding(
+//              padding: const EdgeInsets.only(right: 8.0,top: 10.0),
+//              child: new Text(R.titr.karamouzu,style: TextStyle(color: Color(0xfffe346e),fontSize: 20.0,fontWeight: FontWeight.bold),),
+//            ),
+//            new SizedBox(height: 40.0,),
+//            new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
+//                child: new Image(image: AssetImage(R.images.karAmouzi),height: 85.0,))
+//          ],
+//        ),
+//      ),
+//    ),
+//  );
+//}
