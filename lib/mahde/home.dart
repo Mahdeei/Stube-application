@@ -6,6 +6,8 @@ import 'package:stubbbb/HomePage/MyMessagePage.dart';
 import 'package:stubbbb/HomePage/MyProfilePage.dart';
 import 'package:stubbbb/HomePage/MyRequestPage.dart';
 
+import '../R.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -17,7 +19,6 @@ class _HomePageState extends State<HomePage> {
     MyHomePage(),
     MyMessagePage(),
     MyRequestPage(),
-    MyProfilePage(),
   ];
 
   changePage(int indexpage) {
@@ -41,27 +42,21 @@ class _HomePageState extends State<HomePage> {
       drawer: DrawerLists(),
       backgroundColor: Color(0xfff2f3f8),
       bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 16.0,
+        iconSize: 26.0,
+        selectedItemColor: R.color.banafshmain,
+        showSelectedLabels: true,
+        unselectedItemColor: Colors.black,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
-              ),
-              title: new Text('خانه', style: TextStyle(color: Colors.black))),
+              icon: Icon(Icons.home,),
+              title: new Text('خانه',)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.message, color: Colors.black),
-              title: new Text('چت', style: TextStyle(color: Colors.black))),
+              icon: Icon(Icons.message),
+              title: new Text('چت',)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.mail_outline, color: Colors.black),
-              title: new Text('درخواست ها',
-                  style: TextStyle(color: Colors.black))),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.black),
-            title: new Text(
-              'پروفایل',
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
+              icon: Icon(Icons.markunread),
+              title: new Text('جعبه',)),
         ],
         onTap: changePage,
         backgroundColor: Colors.white,

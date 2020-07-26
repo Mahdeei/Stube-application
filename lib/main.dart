@@ -7,8 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-checkerboardOffscreenLayers: false,
-//      theme: ThemeData(canvasColor: Color.fromRGBO(21, 17, 40, 5)),
+//checkerboardOffscreenLayers: false,
       debugShowCheckedModeBanner: false,
       home: new SafeArea(
           top: true,
