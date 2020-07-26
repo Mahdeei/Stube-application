@@ -54,7 +54,7 @@ class _ListCardsState extends State<ListCards> {
   void goToStu(){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ProfilesPage()),
+      MaterialPageRoute(builder: (context) => ProfilesPages()),
     );
   }
   void goToProjects(){
@@ -63,7 +63,6 @@ class _ListCardsState extends State<ListCards> {
       MaterialPageRoute(builder: (context) => AgahiPages()),
     );
   }
-
   void goToKarAomuozi(){
   Navigator.push(
   context,

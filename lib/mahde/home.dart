@@ -5,7 +5,7 @@ import 'package:stubbbb/HomePage/MyHomePage.dart';
 import 'package:stubbbb/HomePage/MyMessagePage.dart';
 import 'package:stubbbb/HomePage/MyProfilePage.dart';
 import 'package:stubbbb/HomePage/MyRequestPage.dart';
-
+import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import '../R.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,10 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentindex = 0;
+  int currentindex = 1;
   List<Widget> listwidget = [
-    MyHomePage(),
     MyMessagePage(),
+    MyHomePage(),
     MyRequestPage(),
   ];
 
@@ -30,37 +30,47 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
-      appBar: new AppBar(actions: <Widget>[
-        new IconButton(
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.white,
-            ),
-            onPressed: () {})
-      ], elevation: 0.0, backgroundColor: Color(0xff2c003e)),
+      appBar: new AppBar(
+          actions: <Widget>[
+            new IconButton(
+                icon: Icon(Icons.notifications,color: Colors.white,),
+                onPressed: () {})
+          ],
+          elevation: 0.0,
+          backgroundColor: R.color.banafshmain),
       drawer: DrawerLists(),
-      backgroundColor: Color(0xfff2f3f8),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 16.0,
-        iconSize: 26.0,
-        selectedItemColor: R.color.banafshmain,
-        showSelectedLabels: true,
-        unselectedItemColor: Colors.black,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home,),
-              title: new Text('خانه',)),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.message),
-              title: new Text('چت',)),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.markunread),
-              title: new Text('جعبه',)),
+      backgroundColor: R.color.backGround1,
+      bottomNavigationBar: FFNavigationBar(
+        theme: FFNavigationBarTheme(
+//          itemWidth: 50.0,
+          barBackgroundColor: Colors.white,
+//          selectedItemBorderColor: R.color.banafshKamRang,
+          selectedItemBackgroundColor: R.color.bluelight,
+          selectedItemIconColor: R.color.banafshtire,
+          selectedItemLabelColor: R.color.banafshtire,
+
+        ),
+        selectedIndex: currentindex,
+        onSelectTab: (index) {
+          setState(() {
+            currentindex = index;
+          });
+        },
+        items: [
+          FFNavigationBarItem(
+
+            iconData: Icons.mail,
+            label: 'جعبه',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.home,
+            label: 'خانه',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.chat,
+            label: 'پیام ها',
+          ),
         ],
-        onTap: changePage,
-        backgroundColor: Colors.white,
-        currentIndex: currentindex,
       ),
       body: listwidget[currentindex],
     );
@@ -140,3 +150,34 @@ List<ListTile> listdrawer = [
     trailing: Icon(Icons.arrow_forward),
   ),
 ];
+
+
+//BottomNavigationBar(
+//selectedFontSize: 16.0,
+//iconSize: 26.0,
+//selectedItemColor: R.color.banafshmain,
+//showSelectedLabels: true,
+//unselectedItemColor: Colors.black,
+//items: <BottomNavigationBarItem>[
+//BottomNavigationBarItem(
+//icon: Icon(
+//Icons.home,
+//),
+//title: new Text(
+//'خانه',
+//)),
+//BottomNavigationBarItem(
+//icon: Icon(Icons.message),
+//title: new Text(
+//'چت',
+//)),
+//BottomNavigationBarItem(
+//icon: Icon(Icons.markunread),
+//title: new Text(
+//'جعبه',
+//)),
+//],
+//onTap: changePage,
+//backgroundColor: Colors.white,
+//currentIndex: currentindex,
+//),
