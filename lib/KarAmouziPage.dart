@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'KaPage.dart';
+import 'R.dart';
 import 'mahde/home.dart';
 
 
@@ -20,7 +21,13 @@ class _KarAmouziPageState extends State<KarAmouziPage> {
           textDirection: TextDirection.rtl,
           child: new SafeArea(
               child: new Scaffold(
-
+                floatingActionButton: new FloatingActionButton(
+                  onPressed: (){
+                    print('Pressed');
+                  },
+                  backgroundColor: R.color.banafshmain,
+                  child: new Icon(Icons.add,color: Colors.white,),
+                ),
                     backgroundColor: Color(0xfff2f3f8),
                     drawer: DrawerLists(),
                     appBar: AppBar(

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stubbbb/AddPostAgahi.dart';
 import 'package:stubbbb/HomePage/MyHomePage.dart';
 import 'package:stubbbb/mahde/home.dart';
-
+import 'package:animations/animations.dart';
 import 'AgahPage.dart';
+import 'R.dart';
 
 class AgahiPages extends StatefulWidget {
   @override
@@ -22,6 +24,23 @@ class _AgahiPagesState extends State<AgahiPages> {
             child: new DefaultTabController(
                 length: 3,
                 child: new Scaffold(
+                  floatingActionButton: new FloatingActionButton(
+                    onPressed: (){
+                      print('Pressed');
+                    },
+                    backgroundColor: R.color.banafshmain,
+                    child: OpenContainer(
+                      transitionDuration: Duration(milliseconds: 500),
+                      closedBuilder: (ctx, action) =>
+                      new Container(
+                        color: R.color.banafshmain,
+//                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        child: new Icon(Icons.add,color: R.color.red,),),
+                      openBuilder: (ctx, action) =>
+                          AddPostAgahi(),
+                    ),
+                  ),
 
                   backgroundColor: Color(0xfff2f3f8),
                   drawer: DrawerLists(),
@@ -168,3 +187,5 @@ class _ProjectListState extends State<ProjectList> {
     );
   }
 }
+
+

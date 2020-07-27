@@ -11,22 +11,25 @@ class ProPage extends StatefulWidget {
 }
 
 class _ProPageState extends State<ProPage> {
+  int currently = 1;
+
+  List<Widget> listObject = [
+    ListOne(),
+    ListImages(),
+    ListTwo()
+  ];
+
+
+  void changeList(int index){
+    setState(() {
+      currently = index;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     var phonesize =MediaQuery.of(context).size;
-    int currently = 1;
-    void changeList(int index,BuildContext context){
-      setState(() {
-        currently = index;
-      });
-    }
-    List<Widget> listObject = [
-      ListOne(),
-      ListImages(),
-      ListTwo()
-    ];
-
-
     return new Material(
       color: R.color.backGround1,
         child: new Directionality(
@@ -163,7 +166,7 @@ class _ProPageState extends State<ProPage> {
                     new GestureDetector(
                       child: new Text('نمونه کارها'),
                       onTap: (){
-                        changeList(1,context);
+                        changeList(1);
                       },
                     ),
                     new Container(
@@ -172,7 +175,7 @@ class _ProPageState extends State<ProPage> {
 //                            color: R.color.red,
                         onPressed: (){
                           setState(() {
-                            changeList(2,context);
+                            changeList(2);
                           });
                         },
                         child: new Text('سوابق و مدارک'),
