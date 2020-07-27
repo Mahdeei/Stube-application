@@ -17,7 +17,7 @@ class MyMessagePage extends StatelessWidget {
           drawer: DrawerLists(),
           appBar: new AppBar(
             leading: IconButton(
-              icon: Icon(Icons.menu),
+              icon: Icon(Icons.menu,color: R.color.banafshmain,),
               onPressed: () => _scaffoldKey.currentState.openDrawer(),
             ),
             //            title: this.cusSearchBar,
@@ -28,7 +28,7 @@ class MyMessagePage extends StatelessWidget {
                   new Padding(
                       padding: const EdgeInsets.only(left: 5.0),
                       child: new IconButton(
-                          icon: Icon(Icons.filter_list), onPressed: () {})),
+                          icon: Icon(Icons.filter_list,color: R.color.banafshmain,), onPressed: () {})),
 
                 ],)
 

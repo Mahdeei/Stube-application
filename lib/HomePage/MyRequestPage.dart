@@ -13,16 +13,22 @@ class MyRequestPage extends StatefulWidget {
 }
 
 class _MyRequestPageState extends State<MyRequestPage>  {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     var phonesize = MediaQuery.of(context).size;
-    return MaterialApp(
-      theme: ThemeData(primaryIconTheme: IconThemeData(color: R.color.banafshmain)),
-      debugShowCheckedModeBanner: false,
-      home: new Directionality(textDirection: TextDirection.rtl,
+    return new Directionality(textDirection: TextDirection.rtl,
         child: new Scaffold(
+
+          key: _scaffoldKey,
           drawer: DrawerLists(),
           appBar: new AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.menu,color: R.color.banafshmain,),
+              onPressed: () => _scaffoldKey.currentState.openDrawer(),
+            ),
+            //            title: this.cusSearchBar,
             actions: <Widget>[
               new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,8 +36,10 @@ class _MyRequestPageState extends State<MyRequestPage>  {
                   new Padding(
                       padding: const EdgeInsets.only(left: 5.0),
                       child: new IconButton(
-                          icon: Icon(Icons.filter_list), onPressed: () {})),
+                          icon: Icon(Icons.filter_list,color: R.color.banafshmain,), onPressed: () {})),
+
                 ],)
+
             ],
             backgroundColor: Colors.white,
             elevation: 5.0,
@@ -106,8 +114,7 @@ class _MyRequestPageState extends State<MyRequestPage>  {
                 Line()
               ],
             )
-        ),
-      ),)
+        ),)
     );
   }
 }

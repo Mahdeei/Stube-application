@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:stubbbb/AgahPage.dart';
 
+import 'R.dart';
+
 class ProPage extends StatefulWidget {
   @override
   _ProPageState createState() => _ProPageState();
@@ -12,9 +14,21 @@ class _ProPageState extends State<ProPage> {
   @override
   Widget build(BuildContext context) {
     var phonesize =MediaQuery.of(context).size;
+    int currently = 1;
+    void changeList(int index,BuildContext context){
+      setState(() {
+        currently = index;
+      });
+    }
+    List<Widget> listObject = [
+      ListOne(),
+      ListImages(),
+      ListTwo()
+    ];
+
 
     return new Material(
-      color: Color(0xffF5F0F0),
+      color: R.color.backGround1,
         child: new Directionality(
             textDirection: TextDirection.rtl, child: new SafeArea(
             child: ListView(
@@ -129,58 +143,135 @@ class _ProPageState extends State<ProPage> {
                       ],
                     )
                     ]),
-                new Padding(padding: const EdgeInsets.only(right: 7.0,top: 18.0),child: new Text('یکسال به طور حرفه ای برنامه نویسی اپ کار کردم و فرانت و بک را خودم انجام میدم . لطفا برای صحبت برای هزینه بهم پیام بدید و اینکه کار رو با ضمانت تحویل میدم و از لحاظ کیفیت خیالتان راحت ',
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                ),),
-                ListImages(),
-                Line(),
-                new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
-                    child: new Wrap(
-                      runSpacing: 8.0,
-                      spacing: 7.0,
-                      children: <Widget>[
-                        ObjectTag(tags: 'رنامه نویسی موبایل',),
-                        ObjectTag(tags: 'ui',),
-                        ObjectTag(tags: 'ux',),
-                        ObjectTag(tags: 'رنامه',),
-                        ObjectTag(tags: 'back end',),
-                      ],
-                    )),
-                Line(),
-                new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
-                  child: new Text('سوابق کاری',
-                    style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
-                new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-                  child: new Text('به مدت دوسال با شرکت ایران کُد همکاری میکردم ، نزدیک به 30 تا پروژه موفق داشتم.عضو تیم طراحان اپلیکیشن های بایو، کیهان، مرداب و شهر به شهر بوده ام.بنیان گذار و طراح و برنامه نویس اپلیکیشن استیوب هم هستم ',
-                    style: TextStyle(fontSize: 16.0),),),
-                Line(),
-                new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
-                  child: new Text('سوابق تحصیلی',
-                    style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
-                new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-                  child: new Text('بنده در مقطع کارشناسی رشته مهندسی برق در حال تحصیل می باشم.', style: TextStyle(fontSize: 16.0),),),
-                Line(),
-                new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
-                  child: new Text('مدارک و یا گواهینامه های معتبر',
-                    style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
-                new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-                  child: new Text('مدرک فنی حرفه ای الکترونیک رو هم دارم .دارای مدرک الپیک دو و مدرک تافل میباشم.', style: TextStyle(fontSize: 16.0),),),
-                Line(),
-                new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
-                  child: new Text('زبان های مسلط',
-                    style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
-                new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-                  child: new Text('فارسی، عربی، انگلیسی و ترکی', style: TextStyle(fontSize: 16.0),),),
+                new Row(
+                  children: <Widget>[
+                    new Column(
+                        children: <Widget>[
+                          new FlatButton(
+                            splashColor: R.color.red,
+//                            color: R.color.red,
+                            onPressed: (){
+                              setState(() {
+                                print('ok');
+
+                              });
+                            },
+                            child: new Text('مشخصات فردی'),
+                          ) ,
+                        ],
+                      ),
+                    new GestureDetector(
+                      child: new Text('نمونه کارها'),
+                      onTap: (){
+                        changeList(1,context);
+                      },
+                    ),
+                    new Container(
+                      child: new FlatButton(
+                        splashColor: R.color.red,
+//                            color: R.color.red,
+                        onPressed: (){
+                          setState(() {
+                            changeList(2,context);
+                          });
+                        },
+                        child: new Text('سوابق و مدارک'),
+                      ),
+                    ),
+
+                  ]),
+                listObject[currently],
+
+
+
+
               ],
 
 
-            ))
+            )))
 
-        ));
+        );
 
   }
 }
+
+
+class ListOne extends StatefulWidget {
+  @override
+  _ListOneState createState() => _ListOneState();
+}
+
+class _ListOneState extends State<ListOne> {
+  @override
+  Widget build(BuildContext context) {
+    return new Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        new Padding(padding: const EdgeInsets.only(right: 7.0,top: 18.0),child: new Text('یکسال به طور حرفه ای برنامه نویسی اپ کار کردم و فرانت و بک را خودم انجام میدم . لطفا برای صحبت برای هزینه بهم پیام بدید و اینکه کار رو با ضمانت تحویل میدم و از لحاظ کیفیت خیالتان راحت ',
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+        ),),
+        new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
+            child: new Wrap(
+              runSpacing: 8.0,
+              spacing: 7.0,
+              children: <Widget>[
+                ObjectTag(tags: 'رنامه نویسی موبایل',),
+                ObjectTag(tags: 'ui',),
+                ObjectTag(tags: 'ux',),
+                ObjectTag(tags: 'رنامه',),
+                ObjectTag(tags: 'back end',),
+              ],
+            )),
+
+      ],
+    );
+  }
+}
+
+
+class ListTwo extends StatefulWidget {
+  @override
+  _ListTwoState createState() => _ListTwoState();
+}
+
+class _ListTwoState extends State<ListTwo> {
+  @override
+  Widget build(BuildContext context) {
+    return new Column(
+      children: <Widget>[
+
+        new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
+          child: new Text('سوابق کاری',
+            style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
+        new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+          child: new Text('به مدت دوسال با شرکت ایران کُد همکاری میکردم ، نزدیک به 30 تا پروژه موفق داشتم.عضو تیم طراحان اپلیکیشن های بایو، کیهان، مرداب و شهر به شهر بوده ام.بنیان گذار و طراح و برنامه نویس اپلیکیشن استیوب هم هستم ',
+            style: TextStyle(fontSize: 16.0),),),
+        Line(),
+        new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
+          child: new Text('سوابق تحصیلی',
+            style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
+        new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+          child: new Text('بنده در مقطع کارشناسی رشته مهندسی برق در حال تحصیل می باشم.', style: TextStyle(fontSize: 16.0),),),
+        Line(),
+        new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
+          child: new Text('مدارک و یا گواهینامه های معتبر',
+            style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
+        new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+          child: new Text('مدرک فنی حرفه ای الکترونیک رو هم دارم .دارای مدرک الپیک دو و مدرک تافل میباشم.', style: TextStyle(fontSize: 16.0),),),
+        Line(),
+        new Padding(padding: const EdgeInsets.only(right: 15.0,left: 15.0,top: 10.0),
+          child: new Text('زبان های مسلط',
+            style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),),),
+        new Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+          child: new Text('فارسی، عربی، انگلیسی و ترکی', style: TextStyle(fontSize: 16.0),),),
+      ],
+    );
+  }
+}
+
+
+
 
 
 class ClipPathLine extends CustomClipper<Path> {

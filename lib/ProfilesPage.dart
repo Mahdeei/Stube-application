@@ -12,9 +12,6 @@ class ProfilesPages extends StatefulWidget {
 }
 
 class _ProfilesPagesState extends State<ProfilesPages> {
-//  Icon cusIcon =Icon(Icons.search);
-//  Widget cusSearchBar =Text('سرچ');
-
   @override
   Widget build(BuildContext context) {
     var phonesize = MediaQuery.of(context).size;
