@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'KaPage.dart';
 import 'R.dart';
 import 'mahde/home.dart';
@@ -40,10 +39,7 @@ class _KarAmouziPageState extends State<KarAmouziPage> {
                         ],
                         backgroundColor: Colors.white,
                         ),
-
                     body: KarAmouziListList(),
-//        body: ListView.builder(itemBuilder: null),
-
                  ),
         )));
   }
@@ -67,7 +63,6 @@ class _KarAmouziListListState extends State<KarAmouziListList> {
               context,
               MaterialPageRoute(builder: (context) => KaPage()),
             );
-
           },
           child: new Container(
             margin: const EdgeInsets.only(right: 6.0,bottom: 5.0,top: 10.0,left: 9.0),
@@ -100,7 +95,6 @@ class _KarAmouziListListState extends State<KarAmouziListList> {
                       children: <Widget>[
                         new Text('برنامه نویس اپلیکیشن',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),maxLines: 1,overflow: TextOverflow.ellipsis,),
                         new Text('تعدادی دانشجوی کامپیوتر جهت کاراموزی نیازمندیم ...',maxLines: 1,overflow: TextOverflow.ellipsis,),
-
                         new Row(
                           children: <Widget>[
                             new Padding(
@@ -110,7 +104,6 @@ class _KarAmouziListListState extends State<KarAmouziListList> {
                             new Text('ار اموزی منجر به استخدام',overflow: TextOverflow.ellipsis,maxLines: 1,style: TextStyle(fontSize: 12.0,),),
                             new Padding(padding: const EdgeInsets.only(left: 5.0,right: 20.0),
                               child: new CircleAvatar(
-
                                 maxRadius: 9.0,
                                 child: new Icon(Icons.arrow_forward_ios,color: Colors.white,size: 9.0,),
                                 backgroundColor: Color(0xff2C003E),),)
@@ -148,19 +141,19 @@ class _KarAmouziListListState extends State<KarAmouziListList> {
                                   child: new Text('ux',style: new TextStyle(color: Color(0xff2c003e),fontSize: 11.0,),),
                                 )),
                           ],),
-                        new Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0,),child: new Row(
-
-                          children: <Widget>[
-                            new Icon(Icons.location_city,size: 8.0,color: Color(0xff2C003E),),
-                            new SizedBox(width: 1.0,),
-                            new Text('مشهد،وکیل آباد 56 ، مجتمع احسان',style: TextStyle(fontSize: 8.0),),
+                        new Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0,),
+                            child: new Row(
+                              children: <Widget>[
+                                new Icon(Icons.location_city,size: 8.0,color: Color(0xff2C003E),),
+                                new SizedBox(width: 1.0,),
+                                new Text('مشهد،وکیل آباد 56 ، مجتمع احسان',style: TextStyle(fontSize: 8.0),),
                           ],
                         )),
                       ],))
               ],
             ),
           ),)
-
     );
   }
 }
