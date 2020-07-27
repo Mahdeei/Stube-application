@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:stubbbb/AgahiPages.dart';
 import 'package:stubbbb/HomePage/MyHomePage.dart';
 import 'package:stubbbb/HomePage/MyMessagePage.dart';
 import 'package:stubbbb/HomePage/MyProfilePage.dart';
 import 'package:stubbbb/HomePage/MyRequestPage.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
+import 'package:stubbbb/KarAmouziPage.dart';
+import '../ProfilesPage.dart';
 import '../R.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,7 +39,7 @@ class _HomePageState extends State<HomePage> {
           barBackgroundColor: Colors.white,
 //          selectedItemBorderColor: R.color.banafshKamRang,
           selectedItemBackgroundColor: R.color.red,
-          selectedItemIconColor: R.color.banafshtire,
+          selectedItemIconColor: Colors.white,
           selectedItemLabelColor: R.color.banafshtire,
 
         ),
@@ -67,9 +70,82 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+void goToStu(){
+  BuildContext context;
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ProfilesPages()),
+  );
+}
+
+
 class DrawerLists extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+    List<ListTile> listdrawer = [
+      ListTile(
+        leading: new Icon(Icons.person),
+        onTap: () {
+
+        },
+        title: Text('پروفایل'),
+        trailing: Icon(Icons.arrow_forward),
+      ),
+      ListTile(
+        leading: new Icon(Icons.school),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProfilesPages()),
+          );
+        },
+        title: Text('دانشجوهخا'),
+        trailing: Icon(Icons.arrow_forward),
+      ),
+      ListTile(
+        leading: new Icon(Icons.create_new_folder),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AgahiPages(),
+          ));
+        },
+        title: Text('آگهیا'),
+        trailing: Icon(Icons.arrow_forward),
+      ),
+      ListTile(
+        leading: new Icon(Icons.work),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => KarAmouziPage()),
+          );
+        },
+        title: Text('کارآموزی'),
+        trailing: Icon(Icons.arrow_forward),
+      ),
+      ListTile(
+        leading: new Icon(Icons.block),
+        onTap: () {
+
+        },
+        title: Text('دانشجوی حرفه ای'),
+        trailing: Icon(Icons.arrow_forward),
+      ),
+      ListTile(
+        leading: new Icon(Icons.settings),
+        onTap: () {},
+        title: Text('تنظیمات'),
+        trailing: Icon(Icons.arrow_forward),
+      ),
+      ListTile(
+        leading: new Icon(Icons.exit_to_app),
+        onTap: () {},
+        title: Text('خروج'),
+        trailing: Icon(Icons.arrow_forward),
+      ),
+    ];
     return Drawer(
       child: new ListView(
 //          padding: EdgeInsets.zero,
@@ -96,50 +172,7 @@ class DrawerLists extends StatelessWidget {
   }
 }
 
-List<ListTile> listdrawer = [
-  ListTile(
-    leading: new Icon(Icons.person),
-    onTap: () {},
-    title: Text('پروفایل'),
-    trailing: Icon(Icons.arrow_forward),
-  ),
-  ListTile(
-    leading: new Icon(Icons.school),
-    onTap: () {},
-    title: Text('دانشجوهخا'),
-    trailing: Icon(Icons.arrow_forward),
-  ),
-  ListTile(
-    leading: new Icon(Icons.create_new_folder),
-    onTap: () {},
-    title: Text('آگهیا'),
-    trailing: Icon(Icons.arrow_forward),
-  ),
-  ListTile(
-    leading: new Icon(Icons.work),
-    onTap: () {},
-    title: Text('کارآموزی'),
-    trailing: Icon(Icons.arrow_forward),
-  ),
-  ListTile(
-    leading: new Icon(Icons.block),
-    onTap: () {},
-    title: Text('دانشجوی حرفه ای'),
-    trailing: Icon(Icons.arrow_forward),
-  ),
-  ListTile(
-    leading: new Icon(Icons.settings),
-    onTap: () {},
-    title: Text('تنظیمات'),
-    trailing: Icon(Icons.arrow_forward),
-  ),
-  ListTile(
-    leading: new Icon(Icons.exit_to_app),
-    onTap: () {},
-    title: Text('خروج'),
-    trailing: Icon(Icons.arrow_forward),
-  ),
-];
+
 
 
 //BottomNavigationBar(

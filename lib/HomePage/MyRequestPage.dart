@@ -21,31 +21,8 @@ class _MyRequestPageState extends State<MyRequestPage>  {
       debugShowCheckedModeBanner: false,
       home: new Directionality(textDirection: TextDirection.rtl,
         child: new Scaffold(
-          drawer: Drawer(
-            child: new ListView(
-              //          padding: EdgeInsets.zero,
-              children: <Widget>[
-                new Container(
-                  color: Colors.white,
-                  child: new DrawerHeader(
-                      child: new CircleAvatar(
-                        child: Image.asset('assets/image/download (4).png'),
-                      )),
-                ),
-                new Column(
-                  children: <Widget>[
-                    new Column(
-                      children: new List.generate(7, (int index) {
-                        return listdrawer[index];
-                      }),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
+          drawer: DrawerLists(),
           appBar: new AppBar(
-            //            title: this.cusSearchBar,
             actions: <Widget>[
               new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,9 +31,7 @@ class _MyRequestPageState extends State<MyRequestPage>  {
                       padding: const EdgeInsets.only(left: 5.0),
                       child: new IconButton(
                           icon: Icon(Icons.filter_list), onPressed: () {})),
-
                 ],)
-
             ],
             backgroundColor: Colors.white,
             elevation: 5.0,

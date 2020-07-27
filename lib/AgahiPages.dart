@@ -24,22 +24,7 @@ class _AgahiPagesState extends State<AgahiPages> {
                 child: new Scaffold(
 
                   backgroundColor: Color(0xfff2f3f8),
-                  drawer: Drawer(
-
-                    child: new ListView(
-                      children: <Widget>[
-                        new Container(
-                          color: Colors.white,
-                          child: new DrawerHeader(child: new CircleAvatar(child: Image.asset('assets/image/download (4).png'),)),),
-                        new Column(children: <Widget>[
-                          new Column(
-                            children: new List.generate(7, (int index){
-                              return listdrawer[index];
-                            }),
-                          )
-                        ],)
-                      ],
-                    ),),
+                  drawer: DrawerLists(),
                   appBar: AppBar(
                     actions: <Widget>[
                       new Padding(

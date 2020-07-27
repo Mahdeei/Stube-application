@@ -14,5 +14,6 @@ class MyApp extends StatelessWidget {
           bottom: true,
           child: new Directionality(textDirection: TextDirection.rtl, child: HomePage())),
     );
+
   }
 }
