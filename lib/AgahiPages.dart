@@ -55,7 +55,7 @@ class _AgahiPagesState extends State<AgahiPages> {
                       backgroundColor: Colors.white,
                   bottom: TabBar(
                   tabs: [
-                    Tab(icon: new Text(R.titr.aagahi,style: TextStyle(color: Colors.black),)),
+                    Tab(icon: new Text('پروژه ها',style: TextStyle(color: Colors.black),)),
                     Tab(icon: new Text('فروش کتاب',style: TextStyle(color: Colors.black),)),
                     Tab(icon: new Text('کارفرکا',style: TextStyle(color: Colors.black),)),
                     ],
