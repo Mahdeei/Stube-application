@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:stubbbb/AgahPage.dart';
@@ -33,7 +34,7 @@ class _ProPageState extends State<ProPage> {
             child: new SafeArea(
               child: new Container(
                 width: phonesize.width,
-                child: new Column(
+                child: new ListView(
                   children: <Widget>[
                     getTopProfile(),
                     new ProfileTab(listener:changeList,current:currently),
@@ -239,47 +240,48 @@ class ProfileTab extends StatefulWidget {
   _ProfileTabState createState() => _ProfileTabState();
 }
 
-class _ProfileTabState extends State<ProfileTab> {
+class _ProfileTabState extends State<ProfileTab> with SingleTickerProviderStateMixin {
+  TabController _tabController;
+
+  TextStyle textStyle(index){
+    return index==0 ? TextStyle(color: Colors.white,fontSize: 20.0,fontWeight: FontWeight.bold)
+        :
+    TextStyle(color: Colors.black);
+
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = new TabController(length: 3, vsync: this);
+  }
   @override
   Widget build(BuildContext context) {
-    return new Row(
+    return new Column(
       children: <Widget>[
-        new GestureDetector(
-          child:new Container(
-                width: MediaQuery.of(context).size.width/3,
-                decoration: widget.current==0?new BoxDecoration(color: Colors.blue):new BoxDecoration(),
-                padding: EdgeInsets.all(8),
-                child: new Text(
-                  "data",
-                  textAlign: TextAlign.center,
-                ),
-              ),
-          onTap: ()=>widget.listener(0),
-        ),
-        new GestureDetector(
-          child: new Container(
-                width: MediaQuery.of(context).size.width/3,
-                decoration: widget.current==1?new BoxDecoration(color: Colors.blue):new BoxDecoration(),
-                padding: EdgeInsets.all(8),
-                child: new Text(
-                  "data",
-                  textAlign: TextAlign.center,
-                ),
-              ),
-          onTap:()=> widget.listener(1),
-        ),
-        new GestureDetector(
-          child: new Container(
-                width: MediaQuery.of(context).size.width/3,
-                decoration: widget.current==2?new BoxDecoration(color: Colors.blue):new BoxDecoration(),
-                padding: EdgeInsets.all(8),
-                child: new Text(
-                  "data",
-                  textAlign: TextAlign.center,
-                ),
-              ),
-          onTap: ()=>widget.listener(2),
-        ),
+        new Container(
+//          height: 50,
+        child: new TabBar(controller: _tabController,
+            indicatorColor: R.color.banafshtire,
+            labelStyle: TextStyle(color: R.color.backGround1),
+           unselectedLabelColor: R.color.banafshKamRang ,
+            labelColor: R.color.banafshtire,
+            unselectedLabelStyle: TextStyle(color: Colors.white),
+            tabs: <Widget>[
+              new Tab(text: 'مشحصات',),
+              new Tab(text: 'نمونه کارها',),
+              new Tab(text: 'نظرات',),
+
+            ]),),
+       new Container(
+         height: 550,
+       child:  new TabBarView(
+           controller: _tabController,
+           children: [
+             ListOne(),
+             ListTwo(),
+             ListImages()
+           ]),)
       ],
     );
   }
@@ -288,6 +290,7 @@ class _ProfileTabState extends State<ProfileTab> {
 
 
 class ListOne extends StatefulWidget {
+
   @override
   _ListOneState createState() => _ListOneState();
 }
