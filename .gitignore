@@ -1,5 +1,6 @@
 build/
 README.md
+lib/TestClass.dart
 
 # Miscellaneous
 *.class
