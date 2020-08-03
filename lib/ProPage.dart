@@ -261,10 +261,11 @@ class _ProfileTabState extends State<ProfileTab> with SingleTickerProviderStateM
       children: <Widget>[
         new Container(
 //          height: 50,
-        child: new TabBar(controller: _tabController,
+        child: new TabBar(
+            controller: _tabController,
             indicatorColor: R.color.banafshtire,
             labelStyle: TextStyle(color: R.color.backGround1),
-           unselectedLabelColor: R.color.banafshKamRang ,
+            unselectedLabelColor: R.color.banafshKamRang ,
             labelColor: R.color.banafshtire,
             unselectedLabelStyle: TextStyle(color: Colors.white),
             tabs: <Widget>[
@@ -274,8 +275,8 @@ class _ProfileTabState extends State<ProfileTab> with SingleTickerProviderStateM
 
             ]),),
        new Container(
-         height: 550,
-       child:  new TabBarView(
+         height: MediaQuery.of(context).size.height,
+          child:  new TabBarView(
            controller: _tabController,
            children: [
              ListOne(),
