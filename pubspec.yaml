@@ -23,14 +23,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-#  flutter_staggered_grid_view: "^0.3.1"
+  #  flutter_staggered_grid_view: "^0.3.1"
   carousel_slider: ^2.2.1
   ff_navigation_bar: ^0.1.4
+  connectivity: ^0.4.9
+  http: ^0.12.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 #  custom_radio: ^0.1.2
 #   font_awesome_flutter: ^8.8.1
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -39,7 +40,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -57,12 +57,16 @@ flutter:
     - assets/image/undraw_folder_files_nweq.png
     - assets/image/dev.jpg
     - assets/image/avt.jpg
+    - assets/image/drawing.png
+    - assets/image/hom.png
+    - assets/image/backreg.png
+    - assets/image/backlog.png
+    - assets/image/backnum.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -82,3 +86,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
