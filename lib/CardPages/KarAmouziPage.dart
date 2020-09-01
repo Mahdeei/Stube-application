@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'KaPage.dart';
 import 'package:stubbbb/R.dart';
@@ -92,6 +91,7 @@ class _KarAmouziListListState extends State<KarAmouziListList> {
                     new Container(
                       margin: const EdgeInsets.only(
                         right: 4.0,
+                        left: 3.0
                       ),
                       height: phonesize.height * 0.14,
                       width: phonesize.width * 0.32,

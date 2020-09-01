@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stubbbb/CardPages/AgahiPages.dart';
-import 'package:stubbbb/HomePage/MyProfilePage.dart';
 import 'package:stubbbb/R.dart';
 import 'CardPages/AgahiPages.dart';
 import 'CardPages/KarAmouziPage.dart';
 import 'CardPages/ProfilesPage.dart';
 
 class ListCards extends StatefulWidget {
+  
   @override
   _ListCardsState createState() => _ListCardsState();
 }
@@ -32,13 +31,13 @@ class _ListCardsState extends State<ListCards> {
                 model: new ModelMenu(
                     R.titr.daneshjo, R.images.daneshjoHa, R.color.red),
                 phonesize: phonesize,
-                Listener: goToStu,
+                listener: goToStu,
               ),
               new MenuItemWidget(
                 model: new ModelMenu(
                     R.titr.aagahi, R.images.projects, R.color.banafshmain),
                 phonesize: phonesize,
-                Listener: goToProjects,
+                listener: goToProjects,
               ),
             ],
           ),
@@ -49,13 +48,13 @@ class _ListCardsState extends State<ListCards> {
                 model: new ModelMenu(
                     R.titr.karamouzu, R.images.karAmouzi, R.color.blueTire),
                 phonesize: phonesize,
-                Listener: goToKarAomuozi,
+                listener: goToKarAomuozi,
               ),
               new MenuItemWidget(
                 model: new ModelMenu(R.titr.daneshjoyehefei,
                     R.images.daneshjoyeHerfei, R.color.red),
                 phonesize: phonesize,
-                Listener: goToStu,
+                listener: goToStu,
               ),
             ],
           )
@@ -104,16 +103,16 @@ class ModelMenu {
 class MenuItemWidget extends StatelessWidget {
   ModelMenu model;
   var phonesize;
-  var Listener;
+  var listener;
 
-  MenuItemWidget({@required this.model, this.phonesize, this.Listener});
+  MenuItemWidget({@required this.model, this.phonesize, this.listener});
 
   @override
   Widget build(BuildContext context) {
     return new Container(
         child: new GestureDetector(
       onTap: () {
-        Listener();
+        listener();
       },
       child: new Card(
         shadowColor: Colors.black,

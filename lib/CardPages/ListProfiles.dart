@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stubbbb/mahde/profileModels.dart';
 import 'ProPage.dart';
 
 class ListProfiles extends StatefulWidget {
+  final Models model;
+  ListProfiles({this.model});
   final controller = new PageController();
   @override
   _ListProfilesState createState() => _ListProfilesState();
@@ -28,7 +30,6 @@ class _ListProfilesState extends State<ListProfiles> {
                 child: new Container(
                   height: phonesize.height * 0.1,
                   width: phonesize.width * 0.7,
-//        color: Colors.white,
                   child: new Column(
                     children: <Widget>[
                       new Row(
@@ -36,7 +37,7 @@ class _ListProfilesState extends State<ListProfiles> {
                         children: <Widget>[
                           new Padding(
                             padding: const EdgeInsets.only(right: 8.0),
-                            child: new Text('امید روینده',
+                            child: new Text(widget.model.name,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                                 style: TextStyle(
@@ -46,7 +47,7 @@ class _ListProfilesState extends State<ListProfiles> {
                           new Padding(
                             padding: const EdgeInsets.only(left: 10.0),
                             child: new Text(
-                              'omeadr',
+                              widget.model.username,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
@@ -76,7 +77,7 @@ class _ListProfilesState extends State<ListProfiles> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 3.0, vertical: 1.0),
                                       child: new Text(
-                                        'برنامه نویسی موبایل',
+                                        'ml,,,,,',
                                         style: new TextStyle(
                                           color: Color(0xff2c003e),
                                           fontSize: 10.0,
@@ -138,19 +139,19 @@ class _ListProfilesState extends State<ListProfiles> {
               new Padding(
                 padding: const EdgeInsets.only(top: 10.0, right: 0.0),
                 child: new Container(
-                  height: phonesize.height * 0.10,
-                  width: phonesize.width * 0.20,
+                  height: phonesize.height * 0.12,
+                  width: phonesize.width * 0.22,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         image: new AssetImage('assets/image/download.jfif'),
                         fit: BoxFit.cover),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black,
-                          offset: Offset(1.5, 3.0),
-                          blurRadius: 5.0),
-                    ],
-                    borderRadius: BorderRadius.all(Radius.circular(27)),
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //       color: Colors.black,
+                    //       offset: Offset(1.5, 3.0),
+                    //       blurRadius: 5.0),
+                    // ],
+                    borderRadius: BorderRadius.all(Radius.circular(45)),
                   ),
                 ),
               ),
@@ -193,7 +194,7 @@ class _TextfieldSearchState extends State<TextfieldSearch> {
         child: new TextField(
           decoration: InputDecoration(
 //          border: InputBorder.none,
-            contentPadding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 10.0),
+            contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 4.0, 10.0),
             suffixIcon: new Icon(
               Icons.search,
               color: Color(0xff2c003e),

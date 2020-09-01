@@ -9,7 +9,7 @@ class AgahPage extends StatefulWidget {
 class _AgahPageState extends State<AgahPage> {
   @override
   Widget build(BuildContext context) {
-    var phonesize = MediaQuery.of(context).size;
+    // var phonesize = MediaQuery.of(context).size;
     return new MaterialApp(
         debugShowCheckedModeBanner: false,
         home: new Directionality(

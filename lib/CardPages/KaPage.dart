@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'AgahPage.dart';
@@ -11,7 +10,7 @@ class KaPage extends StatefulWidget {
 class _KaPageState extends State<KaPage> {
   @override
   Widget build(BuildContext context) {
-    var phonesize = MediaQuery.of(context).size;
+    // var phonesize = MediaQuery.of(context).size;
     return new MaterialApp(
         debugShowCheckedModeBanner: false,
         home: new Directionality(

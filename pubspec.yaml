@@ -28,6 +28,7 @@ dependencies:
   ff_navigation_bar: ^0.1.4
   connectivity: ^0.4.9
   http: ^0.12.2
+  shared_preferences: ^0.5.10
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 #  custom_radio: ^0.1.2
@@ -62,7 +63,6 @@ flutter:
     - assets/image/backreg.png
     - assets/image/backlog.png
     - assets/image/backnum.png
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

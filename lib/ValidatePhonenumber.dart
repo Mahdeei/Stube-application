@@ -1,12 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:stubbbb/Component/textformfield.dart';
-import 'package:stubbbb/SignIn.dart';
 import 'package:stubbbb/SignUp.dart';
 import 'R.dart';
 
@@ -16,7 +12,7 @@ class ValidatePhoneNumber extends StatefulWidget {
 }
 
 class _ValidatePhoneNumberState extends State<ValidatePhoneNumber> {
-  final String url = "http://192.168.38.2/Stub/ValidatePhone.php";
+  final String url = "http://192.168.56.1/Stub/ValidatePhone.php";
   bool onpresscode = true;
   bool _validatephone = true;
   bool _validateCode = true;
@@ -52,7 +48,7 @@ class _ValidatePhoneNumberState extends State<ValidatePhoneNumber> {
           });
           _timer.cancel();
         }
-        print(_counter);
+        // print(_counter);
       });
     });
   }

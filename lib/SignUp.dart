@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stubbbb/R.dart';
 import 'package:http/http.dart' as http;
 import 'package:stubbbb/SignIn.dart';
-import 'package:stubbbb/ValidatePhonenumber.dart';
 import 'Component/textformfield.dart';
 
 class SignUp extends StatefulWidget {
@@ -16,8 +16,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  var url = "http://192.168.38.2/Stub/SignUp.php";
-  PersistentBottomSheetController _controllerbottomsheet;
+  var url = "http://192.168.56.1//Stub/SignUp.php";
   final _formKey = GlobalKey<FormState>();
   bool onpresscode = true;
   TextEditingController _controller = new TextEditingController();
@@ -179,21 +178,13 @@ class _SignUpState extends State<SignUp> {
                                         if (_formKey.currentState.validate()) {
                                           _formKey.currentState.save();
                                           setBody();
-                                          print(usernameCon);
-                                          print(passCon);
-                                          print(nameCon);
-                                          print(widget.phone);
-                                          print(widget.type);
-                                          print(
-                                              'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-                                          print(_body);
-                                          // if (_body['status'] == 'created') {
-                                          //   Navigator.of(context)
-                                          //       .pushReplacement(
-                                          //           new MaterialPageRoute(
-                                          //               builder: (context) =>
-                                          //                   new SignIn()));
-                                          // }
+                                          if (_body['status'] == 'created') {
+                                            Navigator.of(context)
+                                                .pushReplacement(
+                                                    new MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            new SignIn()));
+                                          }
                                         }
                                       },
                                       child: new Padding(
@@ -253,6 +244,14 @@ class _SignUpState extends State<SignUp> {
       'name': nameCon
     });
     final body = json.decode(response.body);
+    // await storeUserData(body);
+    print(body);
     return body;
   }
+
+//   storeUserData(Map body) async {
+//     SharedPreferences prefs = await SharedPreferences.getInstance();
+//     prefs.setString('user-apiToken', body['apiToken']);
+//     prefs.setString('username', body['username']);
+//   }
 }

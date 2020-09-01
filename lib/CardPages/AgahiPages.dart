@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stubbbb/AddPostAgahi.dart';
-import 'package:stubbbb/HomePage/MyHomePage.dart';
 import 'package:stubbbb/mahde/home.dart';
 import 'package:animations/animations.dart';
 import 'AgahPage.dart';
@@ -15,11 +13,7 @@ class AgahiPages extends StatefulWidget {
 class _AgahiPagesState extends State<AgahiPages> {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        theme: ThemeData(
-            primaryIconTheme: IconThemeData(color: Color(0xff2C003E))),
-        debugShowCheckedModeBanner: false,
-        home: new Directionality(
+    return new Directionality(
           textDirection: TextDirection.rtl,
           child: new SafeArea(
               child: new DefaultTabController(
@@ -88,7 +82,7 @@ class _AgahiPagesState extends State<AgahiPages> {
                     ),
 //        body: ListView.builder(itemBuilder: null),
                   ))),
-        ));
+        );
   }
 }
 
