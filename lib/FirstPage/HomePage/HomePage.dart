@@ -20,7 +20,7 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: R.color.backGround1,
           body: new Column(
             children: <Widget>[
-              NaviBar(),
+              Headers(),
               ListCards(),
             ],
           ),
@@ -28,45 +28,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class NaviBar extends StatelessWidget {
-  var username;
-  @override
-  Widget build(BuildContext context) {
-    var sizePhone = MediaQuery.of(context).size;
-    return new Container(
-        decoration: decorationHomePage(),
-        height: sizePhone.height * 0.16,
-        child: new Column(
-          children: <Widget>[
-            new Padding(
-              padding: const EdgeInsets.only(right: 20.0, top: 0.0),
-              child: new Row(
-                children: <Widget>[
-                  new Container(
-                      margin: const EdgeInsets.only(left: 5.0, top: 10.0),
-                      height: 70.0,
-                      width: 70.0,
-                      // child: new Image.asset("assets/image/download.jfif"),
-                      decoration: decorationImageHomePage()
-                  ),
-                  new SizedBox(width: 10.0),
-                  new Positioned(
-                      child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          new Text('username',style: styleHomePage()),
-                        ],
-                      )
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-    );
-  }
-}
 
 
 // Future userr() async {
