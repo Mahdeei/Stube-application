@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stubbbb/Other/R.dart';
+import 'package:stubbbb/Other/widget.dart';
 import 'KaPage.dart';
-import 'package:stubbbb/R.dart';
 import 'package:stubbbb/mahde/home.dart';
 
 class KarAmouziPage extends StatefulWidget {

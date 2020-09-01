@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stubbbb/CardPages/AgahPage.dart';
+import 'package:stubbbb/Other/widget.dart';
 import 'package:stubbbb/mahde/home.dart';
 
-import '../R.dart';
-
 class MyMessagePage extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -14,39 +13,8 @@ class MyMessagePage extends StatelessWidget {
         child: new Scaffold(
           key: _scaffoldKey,
           drawer: DrawerLists(),
-          appBar: new AppBar(
-            leading: IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: R.color.banafshmain,
-              ),
-              onPressed: () => _scaffoldKey.currentState.openDrawer(),
-            ),
-            //            title: this.cusSearchBar,
-            actions: <Widget>[
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  new Padding(
-                      padding: const EdgeInsets.only(left: 5.0),
-                      child: new IconButton(
-                          icon: Icon(
-                            Icons.filter_list,
-                            color: R.color.banafshmain,
-                          ),
-                          onPressed: () {})),
-                ],
-              )
-            ],
-            backgroundColor: Colors.white,
-            elevation: 5.0,
-            bottomOpacity: 25.0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.circular(30),
-              ),
-            ),
-          ),
+          drawerEnableOpenDragGesture: true,
+          appBar: appBarMessagePage(_scaffoldKey),
           body: new ListView.builder(
               itemCount: 20,
               itemBuilder: (BuildContext context, int index) => new Column(

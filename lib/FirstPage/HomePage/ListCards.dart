@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stubbbb/CardPages/AgahiPages.dart';
-import 'package:stubbbb/R.dart';
-import 'CardPages/AgahiPages.dart';
-import 'CardPages/KarAmouziPage.dart';
-import 'CardPages/ProfilesPage.dart';
+import '../../CardPages/AgahiPages.dart';
+import '../../CardPages/KarAmouziPage.dart';
+import '../../CardPages/ProfilesPage.dart';
+import '../../Other/R.dart';
 
 class ListCards extends StatefulWidget {
   

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:stubbbb/AddPostAgahi.dart';
+import 'package:stubbbb/AgahiPage/AddPostAgahi.dart';
+import 'package:stubbbb/Other/R.dart';
+import 'package:stubbbb/Other/widget.dart';
 import 'package:stubbbb/mahde/home.dart';
 import 'package:animations/animations.dart';
 import 'AgahPage.dart';
-import 'package:stubbbb/R.dart';
 
 class AgahiPages extends StatefulWidget {
   @override

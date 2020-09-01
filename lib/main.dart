@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stubbbb/SignUp.dart';
-import 'package:stubbbb/SplashScreen.dart';
 import 'package:stubbbb/mahde/home.dart';
+
+import 'LoginPage/SignUp.dart';
+import 'LoginPage/SplashScreen.dart';
 
 void main() => runApp(MyApp());
 

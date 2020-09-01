@@ -1,7 +1,6 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-import 'package:stubbbb/HomePage/MyHomePage.dart';
-import 'package:stubbbb/SignIn.dart';
+import 'package:stubbbb/mahde/home.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -46,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
   checkinternet() async {
     if (await netConnet()) {
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new MyHomePage()));
+          new MaterialPageRoute(builder: (context) => new HomePage()));
     } else {
       print('not connected internet');
       skaffoldKey.currentState.showSnackBar(new SnackBar(

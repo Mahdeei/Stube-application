@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:stubbbb/Other/R.dart';
 import 'AgahPage.dart';
 
-import 'package:stubbbb/R.dart';
 
 class ProPage extends StatefulWidget {
   @override
