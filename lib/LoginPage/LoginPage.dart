@@ -41,16 +41,12 @@ class _LoginPageState extends State<LoginPage> {
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        new SizedBox(
-                          height: phoneSize.height * 0.1,
-                        ),
+                        new SizedBox(height: phoneSize.height * 0.1),
                         new Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 22.0),
                           child: textLoginPage(),
                         ),
-                        new SizedBox(
-                          height: phoneSize.height * 0.05,
-                        ),
+                        new SizedBox(height: phoneSize.height * 0.05),
                         new Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
                           child: TextFormField(
@@ -151,24 +147,4 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class ClippLogin extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    // TODO: implement getClip
-    Path path = new Path();
-    path.lineTo(0, 0);
-    path.lineTo(0, size.height - 30);
-    path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 30);
-//    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
 
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw false;
-  }
-}
