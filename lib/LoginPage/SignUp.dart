@@ -1,11 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:stubbbb/Component/textformfield.dart';
 import 'package:stubbbb/LoginPage/SignIn.dart';
 import 'package:stubbbb/Other/R.dart';
+import 'package:stubbbb/Other/widget.dart';
+
 
 class SignUp extends StatefulWidget {
   final String phone;
@@ -40,12 +40,10 @@ class _SignUpState extends State<SignUp> {
     nameCon = value;
   }
 
-  // @override
+ @override
   Widget build(BuildContext context) {
-    var phonesize = MediaQuery.of(context).size;
-    return new MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: new Directionality(
+    var phoneSize = MediaQuery.of(context).size;
+    return new Directionality(
             textDirection: TextDirection.rtl,
             child: new SafeArea(
                 top: true,
@@ -54,40 +52,25 @@ class _SignUpState extends State<SignUp> {
                     body: new Stack(
                       children: <Widget>[
                         new Container(
-                          height: phonesize.height,
-                          // width: phonesize.width,
-                          decoration: new BoxDecoration(
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                    'assets/image/backreg.png',
-                                  ))),
+                          height: phoneSize.height,
+                          decoration: decorationSignUp(),
                         ),
                         new Container(
                           padding: const EdgeInsets.symmetric(horizontal: 0.0),
-                          height: phonesize.height,
+                          height: phoneSize.height,
                           child: new Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              new SizedBox(
-                                height: phonesize.height * 0.09,
-                              ),
+                              new SizedBox(height: phoneSize.height * 0.09),
                               new Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 18.0),
-                                  child: new Text('خوش اومدی',
-                                      style: TextStyle(
-                                          fontSize: 35.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white))),
-                              new SizedBox(
-                                height: phonesize.height * 0.09,
+                                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                                  child: textSignUp()
                               ),
+                              new SizedBox(height: phoneSize.height * 0.09),
                               new Form(
                                   key: _formKey,
                                   child: new Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 35),
+                                    padding: const EdgeInsets.symmetric(horizontal: 35),
                                     child: new Column(
                                       children: <Widget>[
                                         InputTextForm(
@@ -95,14 +78,7 @@ class _SignUpState extends State<SignUp> {
                                           color: Colors.white,
                                           lableColor: Colors.white,
                                           lable: 'نام کاربری',
-                                          // iconData: Icons.school,
-                                          obscure: false,
-                                          validate: (String value) {
-                                            if (!value.contains(new RegExp(
-                                                r"^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"))) {
-                                              return 'not true';
-                                            }
-                                          },
+                                          validate: validateSignUp
                                         ),
                                         InputTextForm(
                                           onSaved: passOnsaved,
@@ -111,18 +87,13 @@ class _SignUpState extends State<SignUp> {
                                           lable: 'کلمه عبور',
                                           // iconData: Icons.lock,
                                           obscure: true,
-                                          validate: (String value) {
-                                            if (value.length < 6) {
-                                              return 'not true';
-                                            }
-                                          },
+                                          validate: validateSignUpPas,
                                           controller: _controller,
                                         ),
                                         InputTextForm(
                                             color: Colors.white,
                                             lableColor: Colors.white,
                                             lable: 'تایید کلمه عبور',
-                                            // iconData: Icons.lock,
                                             obscure: true,
                                             validate: (String value) {
                                               if (value != _controller.text) {
@@ -134,16 +105,8 @@ class _SignUpState extends State<SignUp> {
                                             color: Colors.white,
                                             lableColor: Colors.white,
                                             lable: 'نام و نام خانوادگی',
-                                            // iconData: Icons.person,
-                                            obscure: false,
-                                            validate: (String value) {
-                                              // ignore: missing_return
-                                              if (value.contains(new RegExp(
-                                                  r"^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"))) {
-                                                return 'not true';
-                                              } else if (value.isEmpty)
-                                                return 'not';
-                                            }),
+                                            validate: validateNameSignUp
+                                        ),
                                       ],
                                     ),
                                   )),
@@ -151,28 +114,18 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         new Positioned(
-                            top: phonesize.height * 0.75,
+                            top: phoneSize.height * 0.75,
                             child: new Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
                                 new Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     new Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 35, bottom: 10),
-                                      child: new Text(
-                                        'ثبت نام',
-                                        style: new TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 30,
-                                            fontWeight: FontWeight.w700),
-                                      ),
+                                      padding: const EdgeInsets.only(right: 35, bottom: 10),
+                                      child: textSignUpS()
                                     ),
-                                    new SizedBox(
-                                      width: phonesize.width * .4,
-                                    ),
+                                    new SizedBox(width: phoneSize.width * .4),
                                     new GestureDetector(
                                       onTap: () {
                                         if (_formKey.currentState.validate()) {
@@ -188,23 +141,13 @@ class _SignUpState extends State<SignUp> {
                                         }
                                       },
                                       child: new Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 25),
-                                        child: new CircleAvatar(
-                                          radius: 40,
-                                          backgroundColor: R.color.banafshmain,
-                                          child: new Icon(
-                                            Icons.arrow_forward,
-                                            size: 40,
-                                          ),
-                                        ),
+                                        padding:const EdgeInsets.only(left: 25),
+                                        child: circleSignUp()
                                       ),
                                     )
                                   ],
                                 ),
-                                new SizedBox(
-                                  height: phonesize.height * 0.01,
-                                ),
+                                new SizedBox(height: phoneSize.height * 0.01),
                                 new Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
@@ -214,25 +157,16 @@ class _SignUpState extends State<SignUp> {
                                         onTap: () {
                                           print('pressed1');
                                         },
-                                        child: new Text(
-                                          'ورود',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              decoration:
-                                                  TextDecoration.underline,
-                                              fontSize: 18),
-                                        ),
+                                        child: textSignUpLogin(),
                                       ),
                                     ),
-                                    new SizedBox(
-                                      width: phonesize.width * .6,
-                                    )
+                                    new SizedBox(width: phoneSize.width * .6)
                                   ],
                                 )
                               ],
                             ))
                       ],
-                    )))));
+            ))));
   }
 
   Future signUp() async {
@@ -254,4 +188,5 @@ class _SignUpState extends State<SignUp> {
 //     prefs.setString('user-apiToken', body['apiToken']);
 //     prefs.setString('username', body['username']);
 //   }
+
 }

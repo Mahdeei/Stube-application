@@ -5,7 +5,7 @@ import 'package:stubbbb/Other/R.dart';
 import 'package:stubbbb/Other/widget.dart';
 import 'package:stubbbb/http/profiles.dart';
 import 'package:stubbbb/mahde/home.dart';
-import 'package:stubbbb/mahde/profileModels.dart';
+import 'file:///D:/proflutter/stubbbb/lib/Other/profileModels.dart';
 import 'ListProfiles.dart';
 import 'package:http/http.dart' as http;
 

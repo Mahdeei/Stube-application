@@ -1,5 +1,6 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:stubbbb/Other/widget.dart';
 import 'package:stubbbb/mahde/home.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,22 +20,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       key: skaffoldKey,
-      // backgroundColor: R.color.banafshmain,
       body: new Stack(
         fit: StackFit.expand,
         children: <Widget>[
           new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Container(
-                decoration: new BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/image/drawing.png'))),
-              ),
-              new Text(
-                'استیوب',
-                style: new TextStyle(fontSize: 30.0),
-              )
+              containerSplash(),
+              textSplashScreen()
             ],
           )
         ],
@@ -57,18 +50,18 @@ class _SplashScreenState extends State<SplashScreen> {
                   .hideCurrentSnackBar();
                   // reason: SnackBarClosedReason.hide
             },
-            child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                new Text('اینترنت وصل نیست'),
-                new Icon(
-                  Icons.wifi_lock,
-                  color: Colors.white,
-                )
-              ],
-            ),
+            child: row()
           )));
     }
+  }
+
+  Row row(){
+    return new Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        new Text('اینترنت وصل نیست'),
+        new Icon(Icons.wifi_lock,color: Colors.white,)],
+    );
   }
 
   Future<bool> netConnet() async {

@@ -22,4 +22,5 @@ class Models {
     title = parsedJson['title'];
     apiToken = parsedJson['apiToken'];
   }
+
 }

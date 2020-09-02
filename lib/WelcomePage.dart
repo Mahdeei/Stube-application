@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stubbbb/LoginPage.dart';
-import 'LoginPage.dart';
+
+import 'LoginPage/LoginPage.dart';
 class WelcomePage extends StatefulWidget {
 
   @override

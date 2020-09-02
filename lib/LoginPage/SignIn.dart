@@ -27,9 +27,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     var phonesize = MediaQuery.of(context).size;
-    return new MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: new Directionality(
+    return new Directionality(
             textDirection: TextDirection.rtl,
             child: new SafeArea(
                 top: true,
@@ -141,7 +139,7 @@ class _SignInState extends State<SignIn> {
                           ],
                         ),
                       )
-                    ])))));
+                    ]))));
   }
 
   Future signIn() async {

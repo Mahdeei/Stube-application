@@ -13,6 +13,30 @@ class ModelMenu {
   ModelMenu(this.titr, this.image, this.color);
 }
 
+BoxDecoration decorationLoginPagee(){
+  return BoxDecoration(
+      boxShadow: [
+        BoxShadow(
+            color: Colors.black,
+            offset: Offset(2, 2),
+            blurRadius: 7)
+      ],
+      color: Color(0xffFE346E),
+      borderRadius: BorderRadius.circular(30.0));
+}
+
+BoxDecoration deorationLoginPage(){
+  return BoxDecoration(
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(
+            color: Colors.black,
+            offset: Offset(2, 2),
+            blurRadius: 7)
+      ],
+      borderRadius: BorderRadius.circular(30.0));
+}
+
 BoxDecoration decorationHomePage(){
   return BoxDecoration(
       color: R.color.banafshmain,
@@ -43,6 +67,90 @@ BoxDecoration decorationSignin(){
       borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(40),
           bottomRight: Radius.circular(40)));
+}
+
+BoxDecoration decorationSignUp(){
+  return new BoxDecoration(
+      image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            'assets/image/backreg.png',
+          )));
+}
+
+
+
+InputDecoration inputDecorationLoginPage(String labelText,IconData icon){
+  return InputDecoration(
+      prefixIcon: Icon(icon,color: Colors.white,),
+      labelText: labelText,
+      labelStyle: TextStyle(color: Colors.white),
+      border: UnderlineInputBorder(
+          borderSide:
+          BorderSide(color: Colors.white)),
+      fillColor: Colors.white,
+      focusColor: Colors.white,
+      hoverColor: Colors.white,
+      enabledBorder: UnderlineInputBorder(
+          borderSide:
+          BorderSide(color: Colors.white)));
+}
+
+Text textSignUp(){
+  return new Text('خوش اومدی',
+      style: TextStyle(
+          fontSize: 35.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.white));
+}
+
+Text textSignUpS(){
+  return new Text(
+    'ثبت نام',
+    style: new TextStyle(
+        color: Colors.white,
+        fontSize: 30,
+        fontWeight: FontWeight.w700),
+  );
+}
+
+Text textSignUpLogin(){
+  return new Text(
+    'ورود',
+    style: TextStyle(
+        color: Colors.white,
+        decoration:
+        TextDecoration.underline,
+        fontSize: 18),
+  );
+}
+
+String validateSignUpPas(String value) {
+  if (value.length < 6) {
+    return 'not true';
+  }
+}
+
+String validateNameSignUp(String value) {
+  if (value.contains(new RegExp(
+      r"^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"))) {
+    return 'not true';
+  } else if (value.isEmpty)
+    return 'not';
+}
+
+String validateSignUp(String value) {
+  if (!value.contains(new RegExp(
+      r"^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"))) {
+    return 'not true';
+  }
+}
+
+Text textSplashScreen(){
+  return new Text(
+    'استیوب',
+    style: new TextStyle(fontSize: 30.0),
+  );
 }
 
 Text textSignIn(){
@@ -80,6 +188,31 @@ Text textSigInForget(){
   );
 }
 
+Text textLoginPage(){
+  return new Text('ورود',style: TextStyle(fontSize: 35.0,fontWeight: FontWeight.bold,color: Colors.white),);
+}
+
+Text textLoginPageLogin(){
+  return new Text(
+    'ورود',
+    style: TextStyle(
+        fontSize: 25, color: Colors.white),
+    textAlign: TextAlign.center,
+  );
+}
+
+Padding textLoginPageSignup(){
+  return new Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 0),
+      child: new Text(
+        'ثبت نام',
+        style: TextStyle(
+            fontSize: 25, color: Color(0xff2C003E)),
+        textAlign: TextAlign.center,
+      )
+  );
+}
+
 TextStyle styleHomePage(){
   return TextStyle(
       color: Colors.white,
@@ -98,6 +231,16 @@ CircleAvatar circleAvatarSignIn(){
   );
 }
 
+CircleAvatar circleSignUp(){
+  return new CircleAvatar(
+    radius: 40,
+    backgroundColor: R.color.banafshmain,
+    child: new Icon(
+      Icons.arrow_forward,
+      size: 40,
+    ),
+  );
+}
 
 AppBar appBarHomePage() {
   return new AppBar(actions: <Widget>[
@@ -158,6 +301,23 @@ Container containerError(){
             color: Colors.red,
             fontSize: 17),
       ));
+}
+
+Container containerSplash(){
+  return new Container(
+    decoration: new BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/image/drawing.png'))),
+  );
+}
+
+Container ContainerImageLoginPage(var phonesize){
+  return new Container(color: Colors.white,
+    height: phonesize.height,
+    width: phonesize.width,
+    child: new Align(alignment: Alignment.bottomLeft,
+        child: new Opacity(opacity: 0.25,
+            child: new Image(image: AssetImage('assets/image/hom.png',),height: phonesize.height*0.4,))),);
 }
 
 
