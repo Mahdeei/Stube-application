@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stubbbb/R.dart';
 import 'package:http/http.dart' as http;
-import 'package:stubbbb/SignIn.dart';
-import 'Component/textformfield.dart';
+import 'package:stubbbb/Component/textformfield.dart';
+import 'package:stubbbb/LoginPage/SignIn.dart';
+import 'package:stubbbb/Other/R.dart';
 
 class SignUp extends StatefulWidget {
   final String phone;

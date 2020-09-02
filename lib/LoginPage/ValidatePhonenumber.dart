@@ -3,8 +3,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:stubbbb/SignUp.dart';
-import 'R.dart';
+import 'package:stubbbb/Other/R.dart';
+
+import 'SignUp.dart';
 
 class ValidatePhoneNumber extends StatefulWidget {
   @override

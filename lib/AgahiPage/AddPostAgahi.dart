@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:stubbbb/Other/R.dart';
 
-import 'R.dart';
 
 class AddPostAgahi extends StatefulWidget {
   @override
