@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:stubbbb/AgahiPages.dart';
+import 'package:stubbbb/CardPages/AgahiPages.dart';
 import 'package:stubbbb/HomePage/MyHomePage.dart';
 import 'package:stubbbb/HomePage/MyMessagePage.dart';
-import 'package:stubbbb/HomePage/MyProfilePage.dart';
 import 'package:stubbbb/HomePage/MyRequestPage.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
-import 'package:stubbbb/KarAmouziPage.dart';
-import '../ProfilesPage.dart';
+import 'package:stubbbb/CardPages/KarAmouziPage.dart';
+import '../CArdPages/ProfilesPage.dart';
 import '../R.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,6 +29,8 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -41,7 +42,6 @@ class _HomePageState extends State<HomePage> {
           selectedItemBackgroundColor: R.color.red,
           selectedItemIconColor: Colors.white,
           selectedItemLabelColor: R.color.banafshtire,
-
         ),
         selectedIndex: currentindex,
         onSelectTab: (index) {
@@ -51,7 +51,6 @@ class _HomePageState extends State<HomePage> {
         },
         items: [
           FFNavigationBarItem(
-
             iconData: Icons.mail,
             label: 'جعبه',
           ),
@@ -70,7 +69,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-void goToStu(){
+void goToStu() {
   BuildContext context;
   Navigator.push(
     context,
@@ -78,17 +77,13 @@ void goToStu(){
   );
 }
 
-
 class DrawerLists extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     List<ListTile> listdrawer = [
       ListTile(
         leading: new Icon(Icons.person),
-        onTap: () {
-
-        },
+        onTap: () {},
         title: Text('پروفایل'),
         trailing: Icon(Icons.arrow_forward),
       ),
@@ -107,9 +102,10 @@ class DrawerLists extends StatelessWidget {
         leading: new Icon(Icons.create_new_folder),
         onTap: () {
           Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AgahiPages(),
-          ));
+              context,
+              MaterialPageRoute(
+                builder: (context) => AgahiPages(),
+              ));
         },
         title: Text('آگهیا'),
         trailing: Icon(Icons.arrow_forward),
@@ -127,9 +123,7 @@ class DrawerLists extends StatelessWidget {
       ),
       ListTile(
         leading: new Icon(Icons.block),
-        onTap: () {
-
-        },
+        onTap: () {},
         title: Text('دانشجوی حرفه ای'),
         trailing: Icon(Icons.arrow_forward),
       ),
@@ -171,36 +165,3 @@ class DrawerLists extends StatelessWidget {
     );
   }
 }
-
-
-
-
-//BottomNavigationBar(
-//selectedFontSize: 16.0,
-//iconSize: 26.0,
-//selectedItemColor: R.color.banafshmain,
-//showSelectedLabels: true,
-//unselectedItemColor: Colors.black,
-//items: <BottomNavigationBarItem>[
-//BottomNavigationBarItem(
-//icon: Icon(
-//Icons.home,
-//),
-//title: new Text(
-//'خانه',
-//)),
-//BottomNavigationBarItem(
-//icon: Icon(Icons.message),
-//title: new Text(
-//'چت',
-//)),
-//BottomNavigationBarItem(
-//icon: Icon(Icons.markunread),
-//title: new Text(
-//'جعبه',
-//)),
-//],
-//onTap: changePage,
-//backgroundColor: Colors.white,
-//currentIndex: currentindex,
-//),

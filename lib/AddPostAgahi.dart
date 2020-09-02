@@ -38,19 +38,19 @@ class HeadersItems extends StatefulWidget {
 class _HeadersItemsState extends State<HeadersItems> {
 
 
-  File _imageFile;
+  File imageFile;
   final _picker = ImagePicker();
 
-  Future<Null> _pickImageFromGallery() async {
+  Future<Null> pickImageFromGallery() async {
     final PickedFile pickedFile =
     await _picker.getImage(source: ImageSource.gallery);
-    setState(() => this._imageFile = File(pickedFile.path));
+    setState(() => this.imageFile = File(pickedFile.path));
   }
 
-  Future<Null> _pickImageFromCamera() async {
+  Future<Null> pickImageFromCamera() async {
     final PickedFile pickedFile =
     await _picker.getImage(source: ImageSource.camera);
-    setState(() => this._imageFile = File(pickedFile.path));
+    setState(() => this.imageFile = File(pickedFile.path));
   }
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class _HeadersItemsState extends State<HeadersItems> {
         new Row(
           children: <Widget>[
             new GestureDetector(
-                onTap: () async => await _pickImageFromCamera(),
+                onTap: () async => await pickImageFromCamera(),
                 child: new Container(
                     height: phonesize.height*0.25,
                     width: phonesize.width * 0.45,

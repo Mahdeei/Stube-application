@@ -7,7 +7,11 @@ packages:
       name: animations
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "1.1.2"
+=======
+    version: "1.1.1"
+>>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f
   async:
     dependency: transitive
     description:
@@ -57,6 +61,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.13"
+<<<<<<< HEAD
   dio:
     dependency: "direct dev"
     description:
@@ -70,6 +75,42 @@ packages:
       name: fake_async
       url: "https://pub.dartlang.org"
     source: hosted
+=======
+  connectivity:
+    dependency: "direct main"
+    description:
+      name: connectivity
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.9"
+  connectivity_for_web:
+    dependency: transitive
+    description:
+      name: connectivity_for_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.1"
+  connectivity_macos:
+    dependency: transitive
+    description:
+      name: connectivity_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0+3"
+  connectivity_platform_interface:
+    dependency: transitive
+    description:
+      name: connectivity_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.6"
+  fake_async:
+    dependency: transitive
+    description:
+      name: fake_async
+      url: "https://pub.dartlang.org"
+    source: hosted
+>>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f
     version: "1.1.0"
   ff_navigation_bar:
     dependency: "direct main"
@@ -78,6 +119,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.5"
+  file:
+    dependency: transitive
+    description:
+      name: file
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.2.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -95,8 +143,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  http:
+  flutter_web_plugins:
     dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  http:
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -123,6 +176,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.16.1"
   matcher:
     dependency: transitive
     description:
@@ -151,6 +211,23 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
+<<<<<<< HEAD
+=======
+  path_provider_linux:
+    dependency: transitive
+    description:
+      name: path_provider_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+2"
+  path_provider_platform_interface:
+    dependency: transitive
+    description:
+      name: path_provider_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
+>>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f
   pedantic:
     dependency: transitive
     description:
@@ -158,6 +235,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.0"
+<<<<<<< HEAD
+=======
+  platform:
+    dependency: transitive
+    description:
+      name: platform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
+>>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -165,13 +252,59 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  process:
+    dependency: transitive
+    description:
+      name: process
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.13"
   provider:
     dependency: transitive
     description:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "4.3.2+1"
+=======
+    version: "4.3.1"
+  shared_preferences:
+    dependency: "direct main"
+    description:
+      name: shared_preferences
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.10"
+  shared_preferences_linux:
+    dependency: transitive
+    description:
+      name: shared_preferences_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2+2"
+  shared_preferences_macos:
+    dependency: transitive
+    description:
+      name: shared_preferences_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+10"
+  shared_preferences_platform_interface:
+    dependency: transitive
+    description:
+      name: shared_preferences_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
+  shared_preferences_web:
+    dependency: transitive
+    description:
+      name: shared_preferences_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2+7"
+>>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f
   sky_engine:
     dependency: transitive
     description: flutter
@@ -233,6 +366,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+<<<<<<< HEAD
+=======
+  xdg_directories:
+    dependency: transitive
+    description:
+      name: xdg_directories
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
+>>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f
 sdks:
   dart: ">=2.9.0-14.0.dev <3.0.0"
   flutter: ">=1.16.0 <2.0.0"

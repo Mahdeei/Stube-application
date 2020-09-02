@@ -1,50 +1,28 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:stubbbb/AgahPage.dart';
+import 'AgahPage.dart';
 
-import 'R.dart';
+import 'package:stubbbb/R.dart';
 
 class ProPage extends StatefulWidget {
   @override
   _ProPageState createState() => _ProPageState();
 }
 
-class _ProPageState extends State<ProPage> {
-  int currently = 1;
 
-  List<Widget> listObject = [ListOne(), ListImages(), ListTwo()];
 
-  void changeList(int index) {
-    currently = index;
+class _ProPageState extends State<ProPage> with SingleTickerProviderStateMixin {
+  final bodyGlobalKey = GlobalKey();
+  final List<Widget> myTabs = [
+    Tab(text: 'مشخصات'),
+    Tab(text: 'نظرات'),
+    Tab(text: 'نمونه کارها',)
+  ];
+  TabController _tabController;
+  ScrollController _scrollController;
 
-    setState(() {
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var phonesize = MediaQuery.of(context).size;
-    print("$currently");
-    return new Scaffold(
-        backgroundColor: R.color.backGround1,
-        body: new Directionality(
-            textDirection: TextDirection.rtl,
-            child: new SafeArea(
-              child: new Container(
-                width: phonesize.width,
-                child: new ListView(
-                  children: <Widget>[
-                    getTopProfile(),
-                    new ProfileTab(listener:changeList,current:currently),
-                  ],
-                ),
-              ),
-            )));
-  }
-
-  getTopProfile() {
+  Widget _head() {
     return new Stack(
       children: <Widget>[
         new Container(
@@ -69,8 +47,7 @@ class _ProPageState extends State<ProPage> {
               child: new Column(
                 children: <Widget>[
                   new Padding(
-                    padding: const EdgeInsets.only(
-                        left: 200.0, top: 60.0),
+                    padding: const EdgeInsets.only(left: 200.0, top: 60.0),
                     child: new Row(
                       children: <Widget>[
                         new Icon(
@@ -92,8 +69,7 @@ class _ProPageState extends State<ProPage> {
                     ),
                   ),
                   new Padding(
-                    padding: const EdgeInsets.only(
-                        left: 200.0, top: 20.0),
+                    padding: const EdgeInsets.only(left: 200.0, top: 20.0),
                     child: new Row(
                       children: <Widget>[
                         new Icon(
@@ -139,16 +115,13 @@ class _ProPageState extends State<ProPage> {
                       width: 60.0,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius:
-                          BorderRadius.circular(15.0)),
+                          borderRadius: BorderRadius.circular(15.0)),
                       child: new Padding(
-                        padding: const EdgeInsets.only(
-                            top: 0.5, bottom: 0.5),
+                        padding: const EdgeInsets.only(top: 0.5, bottom: 0.5),
                         child: new Text(
                           'پیام',
                           style: TextStyle(
-                              color: Color(0xff2C003E),
-                              fontSize: 12.0),
+                              color: Color(0xff2C003E), fontSize: 12.0),
                         ),
                       )),
                 ),
@@ -165,16 +138,13 @@ class _ProPageState extends State<ProPage> {
                       width: 60.0,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius:
-                          BorderRadius.circular(15.0)),
+                          borderRadius: BorderRadius.circular(15.0)),
                       child: new Padding(
-                        padding: const EdgeInsets.only(
-                            top: 0.5, bottom: 0.5),
+                        padding: const EdgeInsets.only(top: 0.5, bottom: 0.5),
                         child: new Text(
                           'درخواست',
                           style: TextStyle(
-                              color: Color(0xff2C003E),
-                              fontSize: 12.0),
+                              color: Color(0xff2C003E), fontSize: 12.0),
                         ),
                       )),
                 ),
@@ -195,8 +165,7 @@ class _ProPageState extends State<ProPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     new CircleAvatar(
-                      child: new Image.asset(
-                          'assets/image/download (4).png'),
+                      child: new Image.asset('assets/image/download (4).png'),
                       backgroundColor: Colors.white,
                       maxRadius: 40.0,
                     ),
@@ -228,34 +197,19 @@ class _ProPageState extends State<ProPage> {
       ],
     );
   }
-}
 
-class ProfileTab extends StatefulWidget {
 
-  var listener;
-  int current;
-
-  ProfileTab({this.listener,this.current});
-  @override
-  _ProfileTabState createState() => _ProfileTabState();
-}
-
-class _ProfileTabState extends State<ProfileTab> with SingleTickerProviderStateMixin {
-  TabController _tabController;
-
-  TextStyle textStyle(index){
-    return index==0 ? TextStyle(color: Colors.white,fontSize: 20.0,fontWeight: FontWeight.bold)
-        :
-    TextStyle(color: Colors.black);
-
-  }
   @override
   void initState() {
-    // TODO: implement initState
+    _scrollController = ScrollController();
+    _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(_smoothScrollToTop);
+
     super.initState();
-    _tabController = new TabController(length: 3, vsync: this);
   }
+
   @override
+<<<<<<< HEAD:lib/ProPage.dart
   Widget build(BuildContext context) {
     return new Column(
       children: <Widget>[
@@ -284,14 +238,60 @@ class _ProfileTabState extends State<ProfileTab> with SingleTickerProviderStateM
              ListImages()
            ]),)
       ],
+=======
+  void dispose() {
+    _tabController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  _smoothScrollToTop() {
+    _scrollController.animateTo(
+      0,
+      duration: Duration(microseconds: 300),
+      curve: Curves.ease,
+>>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f:lib/CardPages/ProPage.dart
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Directionality(textDirection: TextDirection.rtl, 
+        child: new SafeArea(top: true,
+            bottom: true,
+            child: Scaffold(
+          body: NestedScrollView(floatHeaderSlivers: true,
+            controller: _scrollController,
+            headerSliverBuilder: (context, value) {
+              return [
+                SliverToBoxAdapter(child: _head()),
+                SliverToBoxAdapter(
+                  child: TabBar(
+                    indicatorColor: R.color.banafshtire,
+                    labelStyle: TextStyle(color: R.color.backGround1),
+                    unselectedLabelColor: R.color.banafshKamRang,
+                    labelColor: R.color.banafshtire,
+                    unselectedLabelStyle: TextStyle(color: Colors.white),
+                    controller: _tabController,
+                    // isScrollable: true,
+                    tabs: myTabs,
+                  ),
+                ),
+              ];
+            },
+            body: Container(
+              child: TabBarView(
+                controller: _tabController,
+                children: [ListOne(), ListTwo(),ListImages()],
+              ),
+            ),
+          ),
+        )));
   }
 }
 
 
-
 class ListOne extends StatefulWidget {
-
   @override
   _ListOneState createState() => _ListOneState();
 }
@@ -299,8 +299,9 @@ class ListOne extends StatefulWidget {
 class _ListOneState extends State<ListOne> {
   @override
   Widget build(BuildContext context) {
-    return new Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return new Padding(padding: const EdgeInsets.only(top: 0),
+    child: new ListView(
+      // crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         new Padding(
           padding: const EdgeInsets.only(right: 7.0, top: 18.0),
@@ -312,7 +313,7 @@ class _ListOneState extends State<ListOne> {
         ),
         new Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
             child: new Wrap(
               runSpacing: 8.0,
               spacing: 7.0,
@@ -335,7 +336,7 @@ class _ListOneState extends State<ListOne> {
               ],
             )),
       ],
-    );
+    ),);
   }
 }
 
@@ -347,10 +348,11 @@ class ListTwo extends StatefulWidget {
 class _ListTwoState extends State<ListTwo> {
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    return new Padding(padding: const EdgeInsets.only(top: 0),
+    child: new ListView(
       children: <Widget>[
         new Padding(
-          padding: const EdgeInsets.only(right: 15.0, left: 15.0, top: 10.0),
+          padding: const EdgeInsets.only(right: 15.0, left: 15.0, top: 0.0),
           child: new Text(
             'سوابق کاری',
             style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
@@ -363,7 +365,7 @@ class _ListTwoState extends State<ListTwo> {
             style: TextStyle(fontSize: 16.0),
           ),
         ),
-        Line(),
+        Divider(),
         new Padding(
           padding: const EdgeInsets.only(right: 15.0, left: 15.0, top: 10.0),
           child: new Text(
@@ -378,7 +380,7 @@ class _ListTwoState extends State<ListTwo> {
             style: TextStyle(fontSize: 16.0),
           ),
         ),
-        Line(),
+        Divider(),
         new Padding(
           padding: const EdgeInsets.only(right: 15.0, left: 15.0, top: 10.0),
           child: new Text(
@@ -393,7 +395,7 @@ class _ListTwoState extends State<ListTwo> {
             style: TextStyle(fontSize: 16.0),
           ),
         ),
-        Line(),
+        Divider(),
         new Padding(
           padding: const EdgeInsets.only(right: 15.0, left: 15.0, top: 10.0),
           child: new Text(
@@ -409,41 +411,39 @@ class _ListTwoState extends State<ListTwo> {
           ),
         ),
       ],
-    );
+    ),);
   }
 }
 
 
-class ClipPathLine extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = new Path();
-    path.lineTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width - 10.0, size.height * 0.26);
-    path.lineTo(size.width, size.height * 0.42);
-    path.lineTo(size.width - 10.0, size.height * 0.59);
-    path.lineTo(size.width, size.height * 0.75);
-    path.lineTo(size.width - 10.0, size.height);
-    path.lineTo(0.0, size.height);
-    path.close();
-    return path;
-  }
 
+
+class ObjectTag extends StatelessWidget {
+  final String tags;
+
+  const ObjectTag({this.tags});
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw false;
+  Widget build(BuildContext context) {
+    return new Container(
+        height: 20.0,
+
+        decoration: BoxDecoration(
+            color: Color(0xff2D0827),
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(15.0)),
+        child:new Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 3.0),
+          child: new Text(tags,style: new TextStyle(color: Colors.white,fontSize: 10.0,),),
+        ));
   }
 }
-
 class ListImages extends StatefulWidget {
   @override
   _ListImagesState createState() => _ListImagesState();
 }
 
 class _ListImagesState extends State<ListImages> {
-  int _current = 0;
+  int current = 0;
 
   List imglist = [
     'assets/image/undraw_folder_files_nweq.png',
@@ -454,46 +454,57 @@ class _ListImagesState extends State<ListImages> {
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider(
-      items: imglist
-          .map((imageAddres) => Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 8.0),
-                      decoration: BoxDecoration(color: Colors.black54),
-                      child: new GestureDetector(
-                        child: Image.asset(
-                          imageAddres,
-                          fit: BoxFit.cover,
-                        ),
-                        onTap: () {
-                          _showSecondPage(context, imageAddres);
-                        },
-                      ));
-                },
-              ))
-          .toList(),
-      options: CarouselOptions(
-          height: 160.0,
-          aspectRatio: 16 / 9,
-          viewportFraction: 0.8,
-          initialPage: 0,
-          enableInfiniteScroll: true,
-          reverse: true,
-          autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
-          autoPlayCurve: Curves.fastOutSlowIn,
-          enlargeCenterPage: true,
-          scrollDirection: Axis.horizontal,
-          onPageChanged: (index, covariant) {
-            setState(() {
-              _current = index;
-            });
-          }),
-    );
+    return new GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),itemCount: imglist.length, itemBuilder: (context, index)=>
+    new GestureDetector(
+      onTap:  () {
+                      _showSecondPage(context, imglist[index]);
+                    },
+        child : new Container(
+      margin: const EdgeInsets.fromLTRB(2, 0, 2, 4),
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage(imglist[index]),fit: BoxFit.cover)
+      ),
+    )));
+    //   CarouselSlider(
+    //   items: imglist
+    //       .map((imageAddres) => Builder(
+    //     builder: (BuildContext context) {
+    //       return Container(
+    //           width: MediaQuery.of(context).size.width,
+    //           margin: const EdgeInsets.symmetric(
+    //               vertical: 16.0, horizontal: 8.0),
+    //           decoration: BoxDecoration(color: Colors.black54),
+    //           child: new GestureDetector(
+    //             child: Image.asset(
+    //               imageAddres,
+    //               fit: BoxFit.cover,
+    //             ),
+    //             onTap: () {
+    //               // _showSecondPage(context, imageAddres);
+    //             },
+    //           ));
+    //     },
+    //   ))
+    //       .toList(),
+    //   options: CarouselOptions(
+    //       height: 160.0,
+    //       aspectRatio: 16 / 9,
+    //       viewportFraction: 0.8,
+    //       initialPage: 0,
+    //       enableInfiniteScroll: true,
+    //       reverse: true,
+    //       autoPlay: true,
+    //       autoPlayInterval: Duration(seconds: 3),
+    //       autoPlayAnimationDuration: Duration(milliseconds: 800),
+    //       autoPlayCurve: Curves.fastOutSlowIn,
+    //       enlargeCenterPage: true,
+    //       scrollDirection: Axis.horizontal,
+    //       onPageChanged: (index, covariant) {
+    //         setState(() {
+    //           current = index;
+    //         });
+    //       }),
+    // );
   }
 }
 
