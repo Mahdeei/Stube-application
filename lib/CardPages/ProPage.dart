@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:stubbbb/Other/R.dart';
 import 'AgahPage.dart';
 
@@ -26,8 +25,14 @@ class _ProPageState extends State<ProPage> with SingleTickerProviderStateMixin {
     return new Stack(
       children: <Widget>[
         new Container(
-          height: MediaQuery.of(context).size.height * 0.28,
-          width: MediaQuery.of(context).size.width,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height * 0.28,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
           color: Color(0xff44143E),
         ),
         new IconButton(
@@ -157,8 +162,14 @@ class _ProPageState extends State<ProPage> with SingleTickerProviderStateMixin {
           child: new ClipPath(
 //            clipper: ClipPathLine(),   TODO : error clipPath
             child: Container(
-                height: MediaQuery.of(context).size.height * 0.28,
-                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height * 0.28,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width * 0.5,
                 color: Color(0xff2D0827),
                 child: new Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -208,37 +219,6 @@ class _ProPageState extends State<ProPage> with SingleTickerProviderStateMixin {
     super.initState();
   }
 
-  @override
-<<<<<<< HEAD:lib/ProPage.dart
-  Widget build(BuildContext context) {
-    return new Column(
-      children: <Widget>[
-        new Container(
-//          height: 50,
-        child: new TabBar(
-            controller: _tabController,
-            indicatorColor: R.color.banafshtire,
-            labelStyle: TextStyle(color: R.color.backGround1),
-            unselectedLabelColor: R.color.banafshKamRang ,
-            labelColor: R.color.banafshtire,
-            unselectedLabelStyle: TextStyle(color: Colors.white),
-            tabs: <Widget>[
-              new Tab(text: 'مشحصات',),
-              new Tab(text: 'نمونه کارها',),
-              new Tab(text: 'نظرات',),
-
-            ]),),
-       new Container(
-         height: MediaQuery.of(context).size.height,
-          child:  new TabBarView(
-           controller: _tabController,
-           children: [
-             ListOne(),
-             ListTwo(),
-             ListImages()
-           ]),)
-      ],
-=======
   void dispose() {
     _tabController.dispose();
     _scrollController.dispose();
@@ -250,46 +230,79 @@ class _ProPageState extends State<ProPage> with SingleTickerProviderStateMixin {
       0,
       duration: Duration(microseconds: 300),
       curve: Curves.ease,
->>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f:lib/CardPages/ProPage.dart
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
-    return new Directionality(textDirection: TextDirection.rtl, 
-        child: new SafeArea(top: true,
-            bottom: true,
-            child: Scaffold(
-          body: NestedScrollView(floatHeaderSlivers: true,
-            controller: _scrollController,
-            headerSliverBuilder: (context, value) {
-              return [
-                SliverToBoxAdapter(child: _head()),
-                SliverToBoxAdapter(
-                  child: TabBar(
-                    indicatorColor: R.color.banafshtire,
-                    labelStyle: TextStyle(color: R.color.backGround1),
-                    unselectedLabelColor: R.color.banafshKamRang,
-                    labelColor: R.color.banafshtire,
-                    unselectedLabelStyle: TextStyle(color: Colors.white),
-                    controller: _tabController,
-                    // isScrollable: true,
-                    tabs: myTabs,
-                  ),
-                ),
-              ];
-            },
-            body: Container(
-              child: TabBarView(
-                controller: _tabController,
-                children: [ListOne(), ListTwo(),ListImages()],
-              ),
-            ),
-          ),
-        )));
+    return new Column(
+      children: <Widget>[
+        new Container(
+          child: new TabBar(
+              controller: _tabController,
+              indicatorColor: R.color.banafshtire,
+              labelStyle: TextStyle(color: R.color.backGround1),
+              unselectedLabelColor: R.color.banafshKamRang,
+              labelColor: R.color.banafshtire,
+              unselectedLabelStyle: TextStyle(color: Colors.white),
+              tabs: <Widget>[
+                new Tab(text: 'مشحصات',),
+                new Tab(text: 'نمونه کارها',),
+                new Tab(text: 'نظرات',),
+
+              ]),),
+        new Container(
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
+          child: new TabBarView(
+              controller: _tabController,
+              children: [
+                ListOne(),
+                ListTwo(),
+                ListImages()
+              ]),)
+      ],);
+
+
+//  @override
+//  Widget build(BuildContext context) {
+//    return new Directionality(textDirection: TextDirection.rtl,
+//        child: new SafeArea(top: true,
+//            bottom: true,
+//            child: Scaffold(
+//          body: NestedScrollView(floatHeaderSlivers: true,
+//            controller: _scrollController,
+//            headerSliverBuilder: (context, value) {
+//              return [
+//                SliverToBoxAdapter(child: _head()),
+//                SliverToBoxAdapter(
+//                  child: TabBar(
+//                    indicatorColor: R.color.banafshtire,
+//                    labelStyle: TextStyle(color: R.color.backGround1),
+//                    unselectedLabelColor: R.color.banafshKamRang,
+//                    labelColor: R.color.banafshtire,
+//                    unselectedLabelStyle: TextStyle(color: Colors.white),
+//                    controller: _tabController,
+//                    // isScrollable: true,
+//                    tabs: myTabs,
+//                  ),
+//                ),
+//              ];
+//            },
+//            body: Container(
+//              child: TabBarView(
+//                controller: _tabController,
+//                children: [ListOne(), ListTwo(),ListImages()],
+//              ),
+//            ),
+//          ),
+//        )));
+//  }
   }
 }
-
 
 class ListOne extends StatefulWidget {
   @override

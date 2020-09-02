@@ -59,16 +59,13 @@ flutter:
     - assets/image/undraw_folder_files_nweq.png
     - assets/image/dev.jpg
     - assets/image/avt.jpg
-<<<<<<< HEAD
     - assets/image/back.jpg
     - assets/image/hom.png
-=======
     - assets/image/drawing.png
     - assets/image/hom.png
     - assets/image/backreg.png
     - assets/image/backlog.png
     - assets/image/backnum.png
->>>>>>> d9c385ef02d4abe638811818253d47b9197c7a6f
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

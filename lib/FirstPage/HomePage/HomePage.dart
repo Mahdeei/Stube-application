@@ -27,14 +27,3 @@ class MyHomePage extends StatelessWidget {
         ));
   }
 }
-
-
-
-// Future userr() async {
-//   var response = await http.post(
-//     'http://192.168.56.1/Stub/selectUsername.php',
-//     body: {'id': '16'},
-//   );
-//   print(response);
-//   username = jsonDecode(response.body);
-// }

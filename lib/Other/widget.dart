@@ -28,12 +28,76 @@ BoxDecoration decorationImageHomePage(){
   );
 }
 
+
+BoxDecoration decorationImageSignin(){
+  return new BoxDecoration(
+      image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            'assets/image/backlog.png',
+      )));
+}
+
+BoxDecoration decorationSignin(){
+  return new BoxDecoration(
+      borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(40),
+          bottomRight: Radius.circular(40)));
+}
+
+Text textSignIn(){
+  return new Text('منتظرت بودیم !',
+      style: TextStyle(
+          fontSize: 35.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.white));
+}
+
+Text textSignInLogin(){
+  return  new Text(
+    'ورود',
+    style: new TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.w700),
+  );
+}
+
+Text textSignInPage(){
+  return new Text(
+    'ثبت نام',
+    style: TextStyle(
+        decoration: TextDecoration.underline,
+        fontSize: 17),
+  );
+}
+
+Text textSigInForget(){
+  return new Text(
+    'فراموشی گلمه عبور',
+    style: TextStyle(
+        decoration: TextDecoration.underline,
+        fontSize: 17),
+  );
+}
+
 TextStyle styleHomePage(){
   return TextStyle(
       color: Colors.white,
       fontSize: 22.0,
       fontWeight: FontWeight.bold);
 }
+
+CircleAvatar circleAvatarSignIn(){
+  return new CircleAvatar(
+    radius: 40,
+    backgroundColor: R.color.banafshmain,
+    child: new Icon(
+      Icons.arrow_forward,
+      size: 40,
+    ),
+  );
+}
+
 
 AppBar appBarHomePage() {
   return new AppBar(actions: <Widget>[
@@ -83,6 +147,17 @@ AppBar appBarMessagePage(_scaffoldKey) {
       ),
     ),
   );
+}
+
+
+Container containerError(){
+  return new Container(
+      child: new Text(
+        "کاربر یافت نشد",
+        style: TextStyle(
+            color: Colors.red,
+            fontSize: 17),
+      ));
 }
 
 
